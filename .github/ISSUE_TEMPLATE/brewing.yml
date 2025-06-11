@@ -1,30 +1,38 @@
 name: 🍺 Brewing Task
-description: Idea, research, recipe, or notes
+description: Simple template for any brewing activity
+title: "[Type]: "
+labels: ["brewing"]
 body:
   - type: dropdown
     id: type
     attributes:
-      label: Type
+      label: What are you doing?
+      description: Choose the type of brewing task
       options:
-        - Idea
-        - Research  
-        - Recipe
-        - Brew Notes
-        - Other
+        - "💡 Idea - I have a brewing idea"
+        - "📚 Research - I want to learn about something"
+        - "🍺 Recipe - I'm creating/updating a recipe"
+        - "📝 Notes - Recording brew day notes"
+        - "❓ Other - Something else"
     validations:
       required: true
       
   - type: textarea
     id: description
     attributes:
-      label: Description
-      placeholder: What's your brewing thought?
+      label: Tell me more
+      placeholder: |
+        Examples:
+        - Idea: "What if we dry-hopped with Thai basil?"
+        - Research: "I want to understand water chemistry for IPAs"
+        - Recipe: "Creating a Belgian Witbier with coriander"
+        - Notes: "Brew day went well, OG was 1.050..."
     validations:
       required: true
       
-  - type: textarea
+  - type: input
     id: related
     attributes:
-      label: Related Issues (Optional)
-      placeholder: "Related to: #"
-      description: Link to related ideas, research, or recipes
+      label: Related to (Optional)
+      placeholder: "#5, #8"
+      description: Reference other issues if this connects to previous work
