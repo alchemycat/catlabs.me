@@ -154,20 +154,14 @@ jobs:
           
           cat research-summary.md
       
-      - name: Comment PR with summary
-        uses: actions/github-script@v6
+      - name: Output research summary
         if: github.event_name == 'pull_request'
-        with:
-          script: |
-            const fs = require('fs');
-            const summary = fs.readFileSync('research-summary.md', 'utf8');
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: summary
-            });
+        run: |
+          echo "Research validation completed successfully"
+          if [[ -f research-summary.md ]]; then
+            echo "Research Summary:"
+            cat research-summary.md
+          fi
 
   experiment-tracking:
     if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'experiment')
