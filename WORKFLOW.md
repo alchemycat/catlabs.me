@@ -6,11 +6,11 @@ This repository follows a GitHub Flow pattern for brewing research and recipe de
 
 ```
 catlabs.me/
-├── recipes/               # Final brewing recipes
-├── research/             # Deep research documents  
-├── brewing-logs/         # Actual brewing session logs
-├── templates/            # Templates for consistency
-├── brews/               # Obsidian vault for notes
+├── 002-recipes/               # Final brewing recipes
+├── 001-research/             # Deep research documents  
+├── 003-brewing-logs/         # Actual brewing session logs
+├── 000-templates/            # Templates for consistency
+├── 004-brews/               # Obsidian vault for notes
 └── .github/             # Issue/PR templates
 ```
 
@@ -26,8 +26,8 @@ catlabs.me/
 
 **Research Branch Workflow:**
 ```bash
-git checkout -b research/topic-name
-# Create research document in research/
+git checkout -b 001-research/topic-name
+# Create research document in 001-research/
 # Document findings and insights
 # Create PR to merge research
 ```
@@ -87,7 +87,7 @@ git checkout -b brewing/recipe-batch-id
 
 | Type | Pattern | Example |
 |------|---------|---------|
-| Research | `research/topic-name` | `research/belgian-yeast-strains` |
+| Research | `001-research/topic-name` | `001-research/belgian-yeast-strains` |
 | Recipe | `recipe/recipe-name` | `recipe/belgian-golden-strong` |
 | Brewing | `brewing/recipe-batch` | `brewing/bgs-001` |
 | Documentation | `docs/topic` | `docs/water-chemistry-guide` |
@@ -173,7 +173,7 @@ git checkout -b brewing/recipe-batch-id
 
 ## Integration with Obsidian
 
-The `brews/` directory serves as an Obsidian vault for:
+The `004-brews/` directory serves as an Obsidian vault for:
 - Quick notes and brainstorming
 - Linking concepts across recipes
 - Visual recipe development

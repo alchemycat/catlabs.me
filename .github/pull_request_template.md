@@ -14,8 +14,8 @@ Brief description of the changes made to the brewing project.
 
 ## 🔍 Changes Made
 ### Recipes
-- [ ] Added new recipe: `recipes/[recipe-file].md`
-- [ ] Modified existing recipe: `recipes/[recipe-file].md`
+- [ ] Added new recipe: `002-recipes/[recipe-file].md`
+- [ ] Modified existing recipe: `002-recipes/[recipe-file].md`
 - [ ] Updated recipe index: `003-recipes-index.md`
 
 ### Documentation

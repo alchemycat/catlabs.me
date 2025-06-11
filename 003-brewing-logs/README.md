@@ -19,12 +19,12 @@ Documentation of actual brewing sessions, measurements, and results.
 
 ### Directory Structure
 ```
-brewing-logs/
+003-brewing-logs/
 ├── 2024/                 # Year-based organization
 │   ├── r001-b001-2024-03-15.md
 │   └── r001-b002-2024-04-20.md
 ├── archive/              # Older brewing logs
-└── templates/            # Log templates
+└── 000-templates/            # Log templates
 ```
 
 ## Brewing Session Types
