@@ -5,7 +5,10 @@
       "Bash(git init:*)",
       "Bash(git add:*)",
       "Bash(find:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(gh repo edit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }
