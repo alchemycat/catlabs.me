@@ -81,7 +81,7 @@ git checkout -b brewing/recipe-batch-id
 | `brewing` | General brewing activity | All brewing-related work |
 | `enhancement` | Improvements | General improvements |
 | `documentation` | Documentation updates | README, guides, etc. |
-| `collaboration` | Multi-person projects | Mae-on, Brewtung, etc. |
+| `collaboration` | Multi-person projects | Collaborative brewing projects |
 
 ## Branch Naming Conventions
 
@@ -133,20 +133,13 @@ git checkout -b brewing/recipe-batch-id
 
 ## Collaboration Integration
 
-### Mae-on Project
+When working on collaborative brewing projects:
 - Use `collaboration` label
-- Reference in recipe and research files
+- Reference collaborators in recipe and research files
 - Coordinate via issues for planning
-
-### Brewtung Collaboration
-- Use `collaboration` label  
 - Document shared brewing sessions
 - Track joint recipe development
-
-### Catalyst Brewing
-- Use `collaboration` label
-- Professional brewing integration
-- Advanced technique documentation
+- Include professional brewing insights when available
 
 ## Quality Control
 

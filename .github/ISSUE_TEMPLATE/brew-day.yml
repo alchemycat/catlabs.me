@@ -98,9 +98,9 @@ body:
       description: Who is involved in this brew session?
       options:
         - Solo brew
-        - Mae-on project
-        - Brewtung collaboration
-        - Catalyst brewing
+        - Collaborative brew
+        - Partner brewery
+        - Professional collaboration
         - Other partners
   
   - type: checkboxes

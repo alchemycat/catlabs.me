@@ -43,9 +43,9 @@ Brief description of the changes made to the brewing project.
 
 ## 🤝 Collaboration
 **Brewing Partners Involved:**
-- [ ] Mae-on project
-- [ ] Brewtung collaboration
-- [ ] Catalyst brewing
+- [ ] Collaborative project
+- [ ] Partner brewery
+- [ ] Professional collaboration
 - [ ] Solo project
 
 ## ✅ Testing/Validation

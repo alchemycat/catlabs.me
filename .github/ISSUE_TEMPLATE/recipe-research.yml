@@ -73,4 +73,4 @@ body:
     attributes:
       label: Collaboration Context
       description: Any brewing partners or projects this relates to
-      placeholder: "e.g., Mae-on project, Brewtung collaboration"
+      placeholder: "e.g., Collaborative brewing project, Partner brewery"

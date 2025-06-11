@@ -103,4 +103,4 @@ body:
     attributes:
       label: Collaboration
       description: Any brewing partners involved in this recipe
-      placeholder: "e.g., Mae-on project, Brewtung collaboration"
+      placeholder: "e.g., Collaborative brewing project, Partner brewery"
