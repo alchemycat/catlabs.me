@@ -35,6 +35,8 @@ Mashing, fermentation, and production workflows
 
 ### Recipe Development
 - [[002-recipes/index|Recipe Collection]] - SMaSH beers and experimental formulations
+  - [[002-recipes/smash/issue-5-barrett-burston-centennial-smash|Barrett Burston Centennial SMaSH]]
+  - [[002-recipes/smash/issue-5-weyermann-centennial-smash|Weyermann Centennial SMaSH]]
 
 ## 📊 Research Status
 
