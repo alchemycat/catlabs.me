@@ -33,7 +33,18 @@
       "Bash(gh pr merge:*)",
       "Bash(git stash:*)",
       "Bash(git pull:*)",
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "Bash(gh repo clone:*)",
+      "Bash(git revert:*)",
+      "Bash(gh api:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh browse:*)",
+      "WebFetch(domain:claude.ai)",
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "mcp__puppeteer__puppeteer_evaluate",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr status:*)"
     ],
     "deny": []
   }

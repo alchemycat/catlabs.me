@@ -1,6 +1,6 @@
-# 🍺 Brewing Research Index
+# 🍺 Simple Brewing Index
 
-Welcome to the catlabs.me brewing research vault. This is a comprehensive knowledge base for brewing experiments, research, and discoveries.
+Welcome to catlabs.me brewing vault. Simple organization for better brewing.
 
 ## 📚 Research Categories
 
