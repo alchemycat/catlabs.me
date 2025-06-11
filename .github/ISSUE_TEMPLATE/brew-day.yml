@@ -1,0 +1,116 @@
+name: 🍻 Brew Day Planning
+description: Plan and track a brewing session
+labels: ["brew-day", "planning", "brewing"]
+body:
+  - type: input
+    id: recipe-name
+    attributes:
+      label: Recipe Name
+      description: Which recipe are you brewing?
+      placeholder: "e.g., Belgian Golden Strong Ale"
+    validations:
+      required: true
+  
+  - type: input
+    id: recipe-file
+    attributes:
+      label: Recipe File
+      description: Path to the recipe file
+      placeholder: "e.g., recipes/r001-belgian-golden-strong-ale.md"
+  
+  - type: input
+    id: planned-date
+    attributes:
+      label: Planned Brew Date
+      description: When do you plan to brew?
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+  
+  - type: input
+    id: batch-number
+    attributes:
+      label: Batch Number
+      description: Batch identifier for tracking
+      placeholder: "e.g., BGS-001, IPA-003"
+  
+  - type: checkboxes
+    id: pre-brew-prep
+    attributes:
+      label: Pre-Brew Preparation
+      description: Tasks to complete before brew day
+      options:
+        - label: Source all ingredients
+        - label: Check equipment condition
+        - label: Plan water treatment
+        - label: Prepare yeast starter (if needed)
+        - label: Clean and sanitize equipment
+        - label: Review recipe and process
+        - label: Check weather conditions
+  
+  - type: checkboxes
+    id: brew-day-tasks
+    attributes:
+      label: Brew Day Tasks
+      description: Key brewing process steps
+      options:
+        - label: Water treatment
+        - label: Mashing
+        - label: Lautering/Sparging
+        - label: Boiling
+        - label: Hop additions
+        - label: Cooling
+        - label: Transfer to fermenter
+        - label: Yeast pitching
+        - label: Record measurements
+  
+  - type: textarea
+    id: measurements-plan
+    attributes:
+      label: Measurements to Track
+      description: What measurements will you record?
+      value: |
+        - [ ] Mash pH
+        - [ ] Pre-boil gravity
+        - [ ] Pre-boil volume
+        - [ ] Post-boil volume
+        - [ ] Original gravity
+        - [ ] Fermenter volume
+        - [ ] Pitching temperature
+  
+  - type: textarea
+    id: recipe-modifications
+    attributes:
+      label: Recipe Modifications
+      description: Any planned changes from the base recipe
+      placeholder: "e.g., Substituting hops, adjusting quantities, process changes"
+  
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Any other planning notes or considerations
+  
+  - type: dropdown
+    id: collaborators
+    attributes:
+      label: Brewing Partners
+      description: Who is involved in this brew session?
+      options:
+        - Solo brew
+        - Mae-on project
+        - Brewtung collaboration
+        - Catalyst brewing
+        - Other partners
+  
+  - type: checkboxes
+    id: post-brew
+    attributes:
+      label: Post-Brew Tasks
+      description: Follow-up tasks after brewing
+      options:
+        - label: Update recipe file with actual measurements
+        - label: Create fermentation tracking log
+        - label: Schedule gravity readings
+        - label: Plan packaging timeline
+        - label: Document any issues or learnings

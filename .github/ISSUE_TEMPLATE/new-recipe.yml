@@ -1,0 +1,106 @@
+name: ➕ New Recipe
+description: Add a new brewing recipe to the collection
+labels: ["enhancement", "new-recipe", "brewing"]
+body:
+  - type: input
+    id: recipe-name
+    attributes:
+      label: Recipe Name
+      description: Name of the new recipe
+      placeholder: "e.g., American IPA"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: beer-style
+    attributes:
+      label: Beer Style
+      description: Category of the beer style
+      options:
+        - Belgian Ales
+        - IPAs
+        - Pale Ales
+        - Stouts & Porters
+        - Lagers
+        - Wheat Beers
+        - Sour Beers
+        - Experimental
+        - Other
+    validations:
+      required: true
+  
+  - type: input
+    id: target-abv
+    attributes:
+      label: Target ABV
+      description: Alcohol by volume percentage
+      placeholder: "e.g., 6.5%"
+  
+  - type: input
+    id: target-ibu
+    attributes:
+      label: Target IBU
+      description: International Bitterness Units
+      placeholder: "e.g., 45"
+  
+  - type: input
+    id: batch-size
+    attributes:
+      label: Batch Size
+      description: Size of the batch
+      placeholder: "e.g., 20L, 45L"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: inspiration
+    attributes:
+      label: Recipe Inspiration
+      description: What inspired this recipe? Commercial examples, style guidelines, etc.
+      placeholder: "Inspired by... or based on..."
+  
+  - type: textarea
+    id: grain-bill
+    attributes:
+      label: Proposed Grain Bill
+      description: Initial grain bill ideas
+      placeholder: |
+        - Base malt (kg/%):
+        - Specialty malts:
+        - Adjuncts:
+  
+  - type: textarea
+    id: hop-schedule
+    attributes:
+      label: Proposed Hop Schedule
+      description: Initial hop ideas
+      placeholder: |
+        - Bittering hops:
+        - Flavor/aroma hops:
+        - Timing:
+  
+  - type: input
+    id: yeast-strain
+    attributes:
+      label: Yeast Strain
+      description: Proposed yeast for fermentation
+      placeholder: "e.g., Safale US-05, WLP001"
+  
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: Implementation Tasks
+      description: Tasks needed to add this recipe
+      options:
+        - label: Create recipe file in recipes/ directory
+        - label: Add to recipes index
+        - label: Research style guidelines
+        - label: Calculate recipe specifications
+        - label: Plan brewing schedule
+  
+  - type: textarea
+    id: collaboration
+    attributes:
+      label: Collaboration
+      description: Any brewing partners involved in this recipe
+      placeholder: "e.g., Mae-on project, Brewtung collaboration"

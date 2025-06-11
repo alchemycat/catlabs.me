@@ -1,0 +1,76 @@
+name: 🍺 Recipe Research
+description: Request research and optimization for brewing recipes
+labels: ["research", "brewing", "recipe-optimization"]
+body:
+  - type: input
+    id: recipe-name
+    attributes:
+      label: Recipe Name
+      description: Name of the recipe to research
+      placeholder: "e.g., Belgian Golden Strong Ale"
+    validations:
+      required: true
+  
+  - type: input
+    id: recipe-file
+    attributes:
+      label: Recipe File
+      description: Path to the recipe file
+      placeholder: "e.g., 03-catlab-brewing/recipes/r001-belgian-golden-strong-ale.md"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: current-recipe
+    attributes:
+      label: Current Recipe Details
+      description: Key details about the current recipe
+      placeholder: |
+        - Style: 
+        - ABV: 
+        - IBU: 
+        - Batch Size: 
+        - Key Ingredients:
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: research-areas
+    attributes:
+      label: Research Areas
+      description: Select areas that need research
+      options:
+        - label: Grain bill analysis and optimization
+        - label: Hop profile and scheduling
+        - label: Yeast selection and fermentation
+        - label: Water chemistry
+        - label: Process optimization
+        - label: Style authenticity
+        - label: Troubleshooting common issues
+  
+  - type: textarea
+    id: specific-questions
+    attributes:
+      label: Specific Questions
+      description: Any specific questions or concerns about the recipe
+      placeholder: "What specific aspects would you like to focus on?"
+  
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this research?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+  
+  - type: textarea
+    id: collaboration
+    attributes:
+      label: Collaboration Context
+      description: Any brewing partners or projects this relates to
+      placeholder: "e.g., Mae-on project, Brewtung collaboration"
