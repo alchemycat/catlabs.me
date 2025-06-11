@@ -32,7 +32,8 @@
       "Bash(gh run view:*)",
       "Bash(gh pr merge:*)",
       "Bash(git stash:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(git merge:*)"
     ],
     "deny": []
   }

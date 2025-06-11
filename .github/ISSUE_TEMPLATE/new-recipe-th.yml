@@ -1,0 +1,107 @@
+name: ➕ สูตรใหม่ (New Recipe)
+description: เพิ่มสูตรเบียร์ใหม่เข้าในคอลเลกชัน
+labels: ["enhancement", "new-recipe", "brewing", "thai"]
+body:
+  - type: input
+    id: recipe-name
+    attributes:
+      label: ชื่อสูตร
+      description: ชื่อของสูตรใหม่
+      placeholder: "เช่น American IPA, Thai Wheat Beer"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: beer-style
+    attributes:
+      label: สไตล์เบียร์
+      description: หมวดหมู่ของสไตล์เบียร์
+      options:
+        - Belgian Ales
+        - IPAs
+        - Pale Ales
+        - Stouts & Porters
+        - Lagers
+        - Wheat Beers
+        - Sour Beers
+        - เบียร์ทดลอง (Experimental)
+        - เบียร์แรงบันดาลใจไทย (Thai-inspired)
+        - อื่นๆ
+    validations:
+      required: true
+  
+  - type: input
+    id: target-abv
+    attributes:
+      label: เป้าหมาย ABV
+      description: เปอร์เซ็นต์แอลกอฮอล์ตามปริมาตร
+      placeholder: "เช่น 6.5%"
+  
+  - type: input
+    id: target-ibu
+    attributes:
+      label: เป้าหมาย IBU
+      description: หน่วยความขมนานาชาติ
+      placeholder: "เช่น 45"
+  
+  - type: input
+    id: batch-size
+    attributes:
+      label: ขนาดชุด
+      description: ขนาดของชุดการทำ
+      placeholder: "เช่น 20L, 45L"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: inspiration
+    attributes:
+      label: แรงบันดาลใจสูตร
+      description: อะไรเป็นแรงบันดาลใจสูตรนี้? ตัวอย่างเชิงพาณิชย์ แนวทางสไตล์ ฯลฯ
+      placeholder: "ได้แรงบันดาลใจจาก... หรืออิงจาก..."
+  
+  - type: textarea
+    id: grain-bill
+    attributes:
+      label: ข้อเสนอ Grain Bill
+      description: ความคิดเริ่มต้นของ grain bill
+      placeholder: |
+        - มอลต์หลัก (kg/%):
+        - มอลต์พิเศษ:
+        - วัตถุดิบเสริม:
+  
+  - type: textarea
+    id: hop-schedule
+    attributes:
+      label: ข้อเสนอตารางฮอปส์
+      description: ความคิดเริ่มต้นของฮอปส์
+      placeholder: |
+        - ฮอปส์ให้ความขม:
+        - ฮอปส์รสชาติ/กลิ่น:
+        - จังหวะเวลา:
+  
+  - type: input
+    id: yeast-strain
+    attributes:
+      label: สายพันธุ์ยีสต์
+      description: ยีสต์ที่เสนอสำหรับการหมัก
+      placeholder: "เช่น Safale US-05, WLP001"
+  
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: งานการดำเนินการ
+      description: งานที่จำเป็นเพื่อเพิ่มสูตรนี้
+      options:
+        - label: สร้างไฟล์สูตรในไดเรกทอรี recipes/
+        - label: เพิ่มในดัชนีสูตร
+        - label: วิจัยแนวทางสไตล์
+        - label: คำนวณข้อมูลจำเพาะสูตร
+        - label: วางแผนตารางการทำเบียร์
+  
+  - type: textarea
+    id: collaboration
+    attributes:
+      label: การร่วมมือ
+      description: คู่หูทำเบียร์ที่เกี่ยวข้องกับสูตรนี้
+      placeholder: "เช่น โครงการทำเบียร์ร่วมกัน, โรงเบียร์คู่หู"
