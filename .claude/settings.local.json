@@ -27,7 +27,9 @@
       "Bash(fi)",
       "Bash(if ! grep -q \"## References\" \"$file\")",
       "Bash(done)",
-      "Bash(git mv:*)"
+      "Bash(git mv:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)"
     ],
     "deny": []
   }
