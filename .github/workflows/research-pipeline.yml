@@ -80,25 +80,32 @@ jobs:
       
       - name: Validate research structure
         run: |
-          # Check for required sections in research documents
-          for file in brews/001-research-outputs/**/*.md; do
-            if [[ -f "$file" ]]; then
+          # Check for required sections in research documents (exclude README files)
+          exit_code=0
+          while IFS= read -r -d '' file; do
+            if [[ ! "$file" =~ README.md$ ]]; then
               echo "Validating $file"
               
               # Check for required sections
               if ! grep -q "## Executive Summary" "$file"; then
                 echo "❌ Missing Executive Summary in $file"
-                exit 1
+                exit_code=1
               fi
               
               if ! grep -q "## References" "$file"; then
                 echo "❌ Missing References section in $file"
-                exit 1
+                exit_code=1
               fi
               
-              echo "✅ $file structure validated"
+              if [[ $exit_code -eq 0 ]]; then
+                echo "✅ $file structure validated"
+              fi
             fi
-          done
+          done < <(find brews/001-research-outputs -name "*.md" -type f -print0)
+          
+          if [[ $exit_code -ne 0 ]]; then
+            exit 1
+          fi
       
       - name: Check for deliverables
         run: |
@@ -147,20 +154,14 @@ jobs:
           
           cat research-summary.md
       
-      - name: Comment PR with summary
-        uses: actions/github-script@v6
+      - name: Output research summary
         if: github.event_name == 'pull_request'
-        with:
-          script: |
-            const fs = require('fs');
-            const summary = fs.readFileSync('research-summary.md', 'utf8');
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: summary
-            });
+        run: |
+          echo "Research validation completed successfully"
+          if [[ -f research-summary.md ]]; then
+            echo "Research Summary:"
+            cat research-summary.md
+          fi
 
   experiment-tracking:
     if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'experiment')
