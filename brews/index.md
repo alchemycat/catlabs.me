@@ -4,30 +4,30 @@ Welcome to catlabs.me brewing vault. Simple organization for better brewing.
 
 ## 📚 Content
 
-### [[research/|📖 Research]]
+### [[01-research/|📖 Research]]
 What I've learned about brewing
-- [[research/issue-1-pale-malt-comparison-bb-weyermann|Pale Malt Comparison: Barrett Burston vs Weyermann]]
-- [[research/issue-3-100-percent-carapils-beer-analysis|100% Carapils Beer Analysis]]
+- [[01-research/issue-1-pale-malt-comparison-bb-weyermann|Pale Malt Comparison: Barrett Burston vs Weyermann]]
+- [[01-research/issue-3-100-percent-carapils-beer-analysis|100% Carapils Beer Analysis]]
 
-### [[recipes/|🍺 Recipes]]
+### [[02-recipes/|🍺 Recipes]]
 What I'm making
-- [[recipes/issue-5-barrett-burston-centennial-smash|Barrett Burston Centennial SMaSH]]
-- [[recipes/issue-5-weyermann-centennial-smash|Weyermann Centennial SMaSH]]
-- [[recipes/issue-7-100-percent-carapils-dextrin-ale|100% Carapils Dextrin Ale]]
+- [[02-recipes/issue-5-barrett-burston-centennial-smash|Barrett Burston Centennial SMaSH]]
+- [[02-recipes/issue-5-weyermann-centennial-smash|Weyermann Centennial SMaSH]]
+- [[02-recipes/issue-7-100-percent-carapils-dextrin-ale|100% Carapils Dextrin Ale]]
 
-### [[notes/|📝 Notes]]
+### [[03-notes/|📝 Notes]]
 How brewing went
 - *Add your brew day notes here*
 
 ## 🏷️ Quick Access by Topic
 
 ### By Topic
-- #pale-malt - [[research/issue-1-pale-malt-comparison-bb-weyermann|Barrett Burston vs Weyermann]]
-- #carapils - [[research/issue-3-100-percent-carapils-beer-analysis|100% Carapils Analysis]]
-- #enzymes - [[research/issue-3-100-percent-carapils-beer-analysis|External Enzyme Protocols]]
+- #pale-malt - [[01-research/issue-1-pale-malt-comparison-bb-weyermann|Barrett Burston vs Weyermann]]
+- #carapils - [[01-research/issue-3-100-percent-carapils-beer-analysis|100% Carapils Analysis]]
+- #enzymes - [[01-research/issue-3-100-percent-carapils-beer-analysis|External Enzyme Protocols]]
 
 ### Recipe Development
-- [[recipes/|Recipe Collection]] - All recipes in one place
+- [[02-recipes/|Recipe Collection]] - All recipes in one place
 
 ## 📊 Recent Activity
 
@@ -43,7 +43,7 @@ limit 10
 
 - [GitHub Issues](https://github.com/alchemycat/catlabs.me/issues) - Ideas and tasks
 - [Simple Workflow](../SIMPLE-BREWING.md) - How we work
-- [[templates/|Templates]] - Simple templates
+- [[04-templates/|Templates]] - Simple templates
 
 ---
 *Simple brewing for humans* 🍺
