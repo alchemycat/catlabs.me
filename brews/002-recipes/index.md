@@ -14,9 +14,9 @@ Single Malt and Single Hop recipes for ingredient evaluation
 - [[smash/issue-5-barrett-burston-centennial-smash|Barrett Burston + Centennial]]
 - [[smash/issue-5-weyermann-centennial-smash|Weyermann + Centennial]]
 
-### 🧪 Experimental Recipes
+### [[experimental/index|🧪 Experimental Recipes]]
 Pushing brewing boundaries
-- *Coming soon: 100% Carapils variations*
+- [[experimental/issue-7-100-percent-carapils-dextrin-ale|100% Carapils Dextrin Ale]]
 
 ### 🇹🇭 Thai-Inspired Recipes
 Local ingredients and flavors
