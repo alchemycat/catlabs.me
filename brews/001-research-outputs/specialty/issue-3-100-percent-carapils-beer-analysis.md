@@ -1,3 +1,13 @@
+---
+tags: [carapils, specialty-brewing, enzymes, experimental, 100-percent-malt, dextrin-malt]
+aliases: ["100% Carapils", "Carapils Beer", "Dextrin Beer Analysis"]
+created: 2025-06-11
+issue: 3
+status: complete
+researcher: Claude AI
+source: https://claude.ai/public/artifacts/e176878a-18b9-4708-a000-eb17d8f49b47
+---
+
 # 100% Carapils Beer Brewing Analysis
 
 **Issue:** [#3 - 100% carapils beer](https://github.com/alchemycat/catlabs.me/issues/3)  

@@ -1,8 +1,16 @@
+---
+tags: [pale-malt, ingredients, malt-comparison, barrett-burston, weyermann, smash-brewing]
+aliases: ["BB vs Weyermann", "Pale Malt Study"]
+created: 2025-06-11
+issue: 1
+status: complete
+---
+
 # Pale Malt Comparison: Barrett Burston Extra Pale vs Weyermann Pale Ale - Comprehensive Analysis
 
 **Issue Reference**: #1
 **Research Category**: Ingredients
-**Status**: In Progress
+**Status**: Complete
 **Created**: 2024-11-06
 
 ## Executive Summary
