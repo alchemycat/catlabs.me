@@ -232,5 +232,37 @@ The 100% Carapils brewing process pushes the boundaries of brewing science and r
    - Homebrew community fermentation reports
    - Academic brewing research publications
 
+5. **Primary Research Source:**
+   - Claude AI Analysis: "Comprehensive Analysis of Brewing Beer with 100% Carapils Malt"
+   - Source URL: https://claude.ai/public/artifacts/e176878a-18b9-4708-a000-eb17d8f49b47
+   - Research conducted in response to catlabs.me issue #3 brewing inquiry
+   - Accessed: June 11, 2025
+
+## Research Methodology and Source Documentation
+
+This analysis was generated through a collaborative research process initiated by the catlabs.me brewing research program. The investigation began with a specific brewing curiosity posted as GitHub issue #3, requesting ideas and recipes for 100% Carapils beer brewing, including enzyme requirements and mashing temperature suggestions.
+
+### Research Process Timeline
+
+1. **Initial Inquiry (Issue #3):** User posted brewing idea: "any idea and recipe about 100% carapils beer. any external enzyme to use? and mashing temp suggestion"
+
+2. **Research Request Formation:** A comprehensive research prompt was developed and posted to issue #3, outlining specific areas for investigation including enzymatic analysis, mashing protocols, recipe formulation, and commercial viability.
+
+3. **AI Research Execution:** Claude AI conducted deep technical analysis, producing a comprehensive research artifact that addresses all aspects of 100% Carapils brewing challenges.
+
+4. **Research Integration:** The AI-generated analysis was captured, formatted, and integrated into the catlabs.me brewing research repository following GitHub Flow methodology.
+
+### Source Attribution
+
+The primary source material for this research comes from Claude AI's comprehensive analysis accessible at https://claude.ai/public/artifacts/e176878a-18b9-4708-a000-eb17d8f49b47. This analysis represents a synthesis of brewing science literature, enzyme manufacturer specifications, commercial brewing practices, and technical brewing knowledge.
+
+The research was conducted as part of the catlabs.me brewing research initiative, which follows a systematic approach to brewing curiosity investigation:
+- **Issue Identification:** Brewing questions posted as GitHub issues
+- **Research Request:** Detailed research prompts developed for AI analysis
+- **Knowledge Capture:** Research results integrated into permanent repository
+- **Process Documentation:** Full methodology and source tracking maintained
+
+This approach ensures that brewing research is systematic, well-documented, and builds upon previous investigations while maintaining proper attribution to source materials and research methodology.
+
 ---
-*Research conducted using comprehensive brewing science literature, enzyme manufacturer specifications, and commercial brewing case studies.*
+*Research conducted using comprehensive brewing science literature, enzyme manufacturer specifications, commercial brewing case studies, and AI-assisted technical analysis. Primary source: Claude AI research artifact (June 11, 2025).*
