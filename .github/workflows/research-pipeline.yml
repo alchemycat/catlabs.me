@@ -81,8 +81,8 @@ jobs:
       - name: Validate research structure
         run: |
           # Check for required sections in research documents (exclude README files)
-          for file in brews/001-research-outputs/**/*.md; do
-            if [[ -f "$file" && ! "$file" =~ README.md$ ]]; then
+          find brews/001-research-outputs -name "*.md" -type f | while read file; do
+            if [[ ! "$file" =~ README.md$ ]]; then
               echo "Validating $file"
               
               # Check for required sections
