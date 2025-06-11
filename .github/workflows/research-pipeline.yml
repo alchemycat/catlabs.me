@@ -81,24 +81,31 @@ jobs:
       - name: Validate research structure
         run: |
           # Check for required sections in research documents (exclude README files)
-          find brews/001-research-outputs -name "*.md" -type f | while read file; do
+          exit_code=0
+          while IFS= read -r -d '' file; do
             if [[ ! "$file" =~ README.md$ ]]; then
               echo "Validating $file"
               
               # Check for required sections
               if ! grep -q "## Executive Summary" "$file"; then
                 echo "❌ Missing Executive Summary in $file"
-                exit 1
+                exit_code=1
               fi
               
               if ! grep -q "## References" "$file"; then
                 echo "❌ Missing References section in $file"
-                exit 1
+                exit_code=1
               fi
               
-              echo "✅ $file structure validated"
+              if [[ $exit_code -eq 0 ]]; then
+                echo "✅ $file structure validated"
+              fi
             fi
-          done
+          done < <(find brews/001-research-outputs -name "*.md" -type f -print0)
+          
+          if [[ $exit_code -ne 0 ]]; then
+            exit 1
+          fi
       
       - name: Check for deliverables
         run: |
