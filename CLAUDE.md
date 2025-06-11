@@ -10,9 +10,11 @@
 ## Structure
 ```
 brews/
-├── research/     # What I learned
-├── recipes/      # What I'm making
-└── notes/        # How it went
+├── 01-research/    # What I learned
+├── 02-recipes/     # What I'm making
+├── 03-notes/       # How it went
+├── 04-templates/   # Simple templates
+└── 99-archive/     # Old stuff
 ```
 
 ## Commands

@@ -12,7 +12,7 @@ gh issue create --title "Idea: [your idea]"
 ```bash
 gh issue develop [issue-number] --name "research/[topic]"
 # Creates branch automatically
-# Add your research to brews/research/[topic].md
+# Add your research to brews/01-research/[topic].md
 # Push and create PR when done
 ```
 
@@ -20,7 +20,7 @@ gh issue develop [issue-number] --name "research/[topic]"
 ```bash
 gh issue create --title "Recipe: [name]" --body "Based on issue #X"
 gh issue develop [issue-number] --name "recipe/[name]"
-# Create recipe in brews/recipes/[name].md
+# Create recipe in brews/02-recipes/[name].md
 # Push and create PR
 ```
 
@@ -28,7 +28,7 @@ gh issue develop [issue-number] --name "recipe/[name]"
 ```bash
 # Add notes directly to main (no issue needed)
 # Or create issue if you want to track it
-git add brews/notes/[date]-[beer].md
+git add brews/03-notes/[date]-[beer].md
 git commit -m "Brew notes: [beer name]"
 ```
 
