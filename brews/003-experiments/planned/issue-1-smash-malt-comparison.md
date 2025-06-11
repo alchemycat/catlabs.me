@@ -2,7 +2,7 @@
 
 **Experiment ID**: EXP-2024-001
 **Issue Reference**: #1
-**Research Basis**: brews/001-research-outputs/ingredients/pale-malt-comparison-bb-weyermann.md
+**Research Basis**: brews/001-research-outputs/ingredients/issue-1-pale-malt-comparison-bb-weyermann.md
 **Status**: Planned
 
 ## Hypothesis

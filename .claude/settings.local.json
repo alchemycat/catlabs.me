@@ -14,7 +14,20 @@
       "Bash(sed:*)",
       "Bash(rm:*)",
       "Bash(ls:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)",
+      "Bash(for:*)",
+      "Bash(do)",
+      "Bash(if [[ -f \"$file\" ]])",
+      "Bash(then)",
+      "Bash(echo \"Validating $file\")",
+      "Bash(if ! grep -q \"## Executive Summary\" \"$file\")",
+      "Bash(echo:*)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(if ! grep -q \"## References\" \"$file\")",
+      "Bash(done)",
+      "Bash(git mv:*)"
     ],
     "deny": []
   }
