@@ -82,7 +82,8 @@ jobs:
         run: |
           echo "✅ Files received - focusing on brewing, not bureaucracy!"
           # Just list what's being added/modified
-          git diff --name-only origin/main...HEAD
+          git fetch origin main
+          git diff --name-only origin/main...HEAD || echo "New files in this PR"
       
       - name: Check for deliverables
         run: |
