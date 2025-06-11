@@ -23,19 +23,19 @@ catlabs.me/
 │   ├── 005-brewing-logs/     # Brew session logs
 │   └── 006-knowledge-base/   # Accumulated knowledge
 ├── README.md                  # This file
-├── BREWING-WORKFLOW.md        # Detailed workflow guide
-└── WORKFLOW.md               # Legacy workflow (being migrated)
+└── SIMPLE-BREWING.md         # Simple workflow guide
 ```
 
 ## Core Workflow
 
-Our brewing research follows a systematic approach using GitHub Flow:
+Our brewing workflow is simple and human-friendly:
 
-### 🔬 Research Pipeline
+### 🍺 Simple Flow
 ```
-Research Request (Issue) → Deep Research (Branch) → Recipe Development (PR) → 
-Experiments (Issue) → Results Analysis (PR) → Knowledge Base (Update)
+Idea (Issue) → Research (Learn) → Recipe (Make) → Notes (Remember)
 ```
+
+See [SIMPLE-BREWING.md](./SIMPLE-BREWING.md) for the complete guide.
 
 ### Key Components
 
@@ -170,10 +170,10 @@ We welcome contributions to brewing research!
 
 ## Resources
 
-- [Detailed Workflow Guide](./BREWING-WORKFLOW.md)
-- [Research Prompts](./brews/000-research-prompts/)
-- [Issue Templates](./.github/ISSUE_TEMPLATE/)
-- [Knowledge Base](./brews/006-knowledge-base/)
+- [Simple Workflow Guide](./SIMPLE-BREWING.md)
+- [Templates](./brews/templates/)
+- [Research](./brews/research/)
+- [Recipes](./brews/recipes/)
 
 ## License
 

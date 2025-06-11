@@ -1,0 +1,30 @@
+name: 🍺 Brewing Task
+description: Idea, research, recipe, or notes
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Idea
+        - Research  
+        - Recipe
+        - Brew Notes
+        - Other
+    validations:
+      required: true
+      
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: What's your brewing thought?
+    validations:
+      required: true
+      
+  - type: textarea
+    id: related
+    attributes:
+      label: Related Issues (Optional)
+      placeholder: "Related to: #"
+      description: Link to related ideas, research, or recipes

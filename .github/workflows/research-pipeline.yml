@@ -1,4 +1,4 @@
-name: Brewing Research Pipeline
+name: Simple Brewing Helper
 
 on:
   issues:
@@ -71,44 +71,18 @@ jobs:
               body: `🔬 Research branch created: \`${branchName}\`\n\nNext steps:\n1. Check out the branch\n2. Use the appropriate research prompt template from \`brews/000-research-prompts/\`\n3. Document findings in \`brews/001-research-outputs/\`\n4. Create experimental recipes and experiments\n5. Submit PR when research is complete`
             });
 
-  research-validation:
+  simple-validation:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       
-      - name: Validate research structure
+      - name: Simple file check
         run: |
-          # Check for required sections in research documents (exclude README files)
-          exit_code=0
-          while IFS= read -r -d '' file; do
-            # Skip README and index files
-            if [[ ! "$file" =~ (README|index)\.md$ ]]; then
-              echo "Validating $file"
-              
-              # Check for required sections
-              if ! grep -q "## Executive Summary" "$file"; then
-                echo "❌ Missing Executive Summary in $file"
-                exit_code=1
-              fi
-              
-              if ! grep -q "## References" "$file"; then
-                echo "❌ Missing References section in $file"
-                exit_code=1
-              fi
-              
-              if [[ $exit_code -eq 0 ]]; then
-                echo "✅ $file structure validated"
-              fi
-            else
-              echo "⏭️  Skipping validation for $file (index/README file)"
-            fi
-          done < <(find brews/001-research-outputs -name "*.md" -type f -print0)
-          
-          if [[ $exit_code -ne 0 ]]; then
-            exit 1
-          fi
+          echo "✅ Files received - focusing on brewing, not bureaucracy!"
+          # Just list what's being added/modified
+          git diff --name-only origin/main...HEAD
       
       - name: Check for deliverables
         run: |
