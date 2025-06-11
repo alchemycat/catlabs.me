@@ -1,0 +1,181 @@
+name: Brewing Research Pipeline
+
+on:
+  issues:
+    types: [opened, labeled]
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'brews/001-research-outputs/**'
+      - 'brews/002-recipes/**'
+      - 'brews/003-experiments/**'
+      - 'brews/004-results/**'
+
+jobs:
+  research-request-automation:
+    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'research')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Create research branch
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          # Create branch name from issue title
+          BRANCH_NAME="research/issue-${ISSUE_NUMBER}-$(echo "$ISSUE_TITLE" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')"
+          
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout -b "$BRANCH_NAME"
+          
+          # Create research document stub
+          mkdir -p brews/001-research-outputs/pending
+          cat > "brews/001-research-outputs/pending/issue-${ISSUE_NUMBER}-research.md" << EOF
+          # Research: $ISSUE_TITLE
+          
+          Issue: #${ISSUE_NUMBER}
+          Created: $(date -u +"%Y-%m-%d")
+          Status: In Progress
+          
+          ## Research Objectives
+          [Extracted from issue]
+          
+          ## Research Progress
+          - [ ] Literature review
+          - [ ] Technical analysis  
+          - [ ] Practical applications
+          - [ ] Recipe development
+          - [ ] Experiment design
+          
+          ## Notes
+          [Research notes go here]
+          EOF
+          
+          git add .
+          git commit -m "Initialize research for issue #${ISSUE_NUMBER}"
+          git push origin "$BRANCH_NAME"
+      
+      - name: Comment on issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            const branchName = `research/issue-${issueNumber}-${context.payload.issue.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+            
+            github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🔬 Research branch created: \`${branchName}\`\n\nNext steps:\n1. Check out the branch\n2. Use the appropriate research prompt template from \`brews/000-research-prompts/\`\n3. Document findings in \`brews/001-research-outputs/\`\n4. Create experimental recipes and experiments\n5. Submit PR when research is complete`
+            });
+
+  research-validation:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Validate research structure
+        run: |
+          # Check for required sections in research documents
+          for file in brews/001-research-outputs/**/*.md; do
+            if [[ -f "$file" ]]; then
+              echo "Validating $file"
+              
+              # Check for required sections
+              if ! grep -q "## Executive Summary" "$file"; then
+                echo "❌ Missing Executive Summary in $file"
+                exit 1
+              fi
+              
+              if ! grep -q "## References" "$file"; then
+                echo "❌ Missing References section in $file"
+                exit 1
+              fi
+              
+              echo "✅ $file structure validated"
+            fi
+          done
+      
+      - name: Check for deliverables
+        run: |
+          # Extract issue number from PR body or branch name
+          ISSUE_NUMBER=$(echo "${{ github.head_ref }}" | grep -oE 'issue-[0-9]+' | grep -oE '[0-9]+' || echo "")
+          
+          if [[ -n "$ISSUE_NUMBER" ]]; then
+            # Check for expected deliverables
+            RESEARCH_FILE=$(find brews/001-research-outputs -name "*issue-${ISSUE_NUMBER}*" | head -1)
+            
+            if [[ -z "$RESEARCH_FILE" ]]; then
+              echo "❌ No research document found for issue #${ISSUE_NUMBER}"
+              exit 1
+            fi
+            
+            # Check for recipes
+            RECIPE_COUNT=$(find brews/002-recipes/experimental -name "*issue-${ISSUE_NUMBER}*" | wc -l)
+            if [[ $RECIPE_COUNT -eq 0 ]]; then
+              echo "⚠️ No experimental recipes found for issue #${ISSUE_NUMBER}"
+            fi
+            
+            # Check for experiments
+            EXPERIMENT_COUNT=$(find brews/003-experiments/planned -name "*issue-${ISSUE_NUMBER}*" | wc -l)
+            if [[ $EXPERIMENT_COUNT -eq 0 ]]; then
+              echo "⚠️ No experiments proposed for issue #${ISSUE_NUMBER}"
+            fi
+          fi
+      
+      - name: Generate research summary
+        run: |
+          # Create summary of research contributions
+          echo "## 📊 Research Contribution Summary" > research-summary.md
+          echo "" >> research-summary.md
+          
+          # Count new research documents
+          RESEARCH_COUNT=$(git diff --name-only origin/main...HEAD | grep "brews/001-research-outputs" | wc -l)
+          echo "- Research documents: $RESEARCH_COUNT" >> research-summary.md
+          
+          # Count new recipes
+          RECIPE_COUNT=$(git diff --name-only origin/main...HEAD | grep "brews/002-recipes" | wc -l)
+          echo "- New recipes: $RECIPE_COUNT" >> research-summary.md
+          
+          # Count new experiments
+          EXPERIMENT_COUNT=$(git diff --name-only origin/main...HEAD | grep "brews/003-experiments" | wc -l)
+          echo "- Experiments proposed: $EXPERIMENT_COUNT" >> research-summary.md
+          
+          cat research-summary.md
+      
+      - name: Comment PR with summary
+        uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('research-summary.md', 'utf8');
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+
+  experiment-tracking:
+    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'experiment')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create experiment tracking
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            
+            // Add experiment tracking project card (if projects are enabled)
+            github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🧪 Experiment tracking initialized\n\n**Checklist:**\n- [ ] Experiment design documented\n- [ ] Materials sourced\n- [ ] Brew day scheduled\n- [ ] Data collection plan ready\n- [ ] Analysis methods defined\n\n**File locations:**\n- Design: \`brews/003-experiments/planned/\`\n- Data: \`brews/004-results/data/\`\n- Analysis: \`brews/004-results/analysis/\``
+            });

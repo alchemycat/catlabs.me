@@ -1,0 +1,190 @@
+name: 📊 Experiment Results & Analysis
+description: Document and analyze brewing experiment results
+labels: ["results", "analysis", "experiment", "data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Experiment Results Documentation
+        Comprehensive documentation of experiment results and analysis.
+
+  - type: input
+    id: experiment-reference
+    attributes:
+      label: Original Experiment
+      description: Link to the experiment design issue
+      placeholder: "Issue #XXX - Experiment Title"
+    validations:
+      required: true
+  
+  - type: input
+    id: completion-date
+    attributes:
+      label: Experiment Completion Date
+      description: When was the experiment completed?
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: experiment-status
+    attributes:
+      label: Experiment Status
+      description: Overall status of the experiment
+      options:
+        - Successful - Hypothesis confirmed
+        - Successful - Hypothesis rejected
+        - Partial Success - Mixed results
+        - Failed - Technical issues
+        - Ongoing - Partial results available
+    validations:
+      required: true
+  
+  - type: textarea
+    id: raw-data-summary
+    attributes:
+      label: Raw Data Summary
+      description: Summary of collected data (full data in CSV files)
+      value: |
+        ## Quantitative Data
+        | Measurement | Control | Test 1 | Test 2 | Notes |
+        |-------------|---------|--------|--------|-------|
+        | | | | | |
+        
+        ## Qualitative Observations
+        - Control batch: [Observations]
+        - Test batch 1: [Observations]
+        - Test batch 2: [Observations]
+        
+        **Full data available at:** brews/004-results/data/[experiment]-data.csv
+    validations:
+      required: true
+  
+  - type: textarea
+    id: statistical-analysis
+    attributes:
+      label: Statistical Analysis
+      description: Results of statistical tests
+      placeholder: |
+        ## Test Performed: [e.g., Two-sample t-test]
+        
+        **Null Hypothesis:** [State H0]
+        **Alternative Hypothesis:** [State H1]
+        
+        **Results:**
+        - Test statistic: [value]
+        - P-value: [value]
+        - Confidence interval: [range]
+        - Effect size: [value]
+        
+        **Conclusion:** [Accept/Reject null hypothesis]
+  
+  - type: textarea
+    id: sensory-results
+    attributes:
+      label: Sensory Evaluation Results
+      description: Results from taste panels or sensory analysis
+      placeholder: |
+        ## Panel Details
+        - Number of panelists: [X]
+        - Test type: [Triangle test, preference, etc.]
+        
+        ## Results
+        - Correct identifications: X/Y
+        - Preference: X% for [sample]
+        - Descriptive notes: [Summary of comments]
+        
+        ## Statistical Significance
+        - [Significant/Not significant] at p < 0.05
+  
+  - type: textarea
+    id: key-findings
+    attributes:
+      label: Key Findings
+      description: Main discoveries from the experiment
+      value: |
+        1. **Finding 1:** [Clear statement of what was learned]
+           - Supporting data: [Specific numbers/observations]
+           - Implications: [What this means for brewing]
+        
+        2. **Finding 2:** [Clear statement]
+           - Supporting data: [Specific numbers/observations]
+           - Implications: [What this means]
+        
+        3. **Finding 3:** [Clear statement]
+           - Supporting data: [Specific numbers/observations]
+           - Implications: [What this means]
+    validations:
+      required: true
+  
+  - type: textarea
+    id: research-validation
+    attributes:
+      label: Research Validation
+      description: How do results compare to original research?
+      placeholder: |
+        ## Research Predictions vs. Actual Results
+        
+        1. Research predicted: [X] → Result: [Y] ✓/✗
+        2. Research predicted: [X] → Result: [Y] ✓/✗
+        3. Research predicted: [X] → Result: [Y] ✓/✗
+        
+        ## Explanation of Discrepancies
+        [If any predictions didn't match, explain why]
+  
+  - type: textarea
+    id: recipe-impact
+    attributes:
+      label: Recipe Development Impact
+      description: How do these results affect recipe development?
+      placeholder: |
+        ## Recipe Modifications Recommended
+        - Change 1: [Based on finding X]
+        - Change 2: [Based on finding Y]
+        
+        ## New Recipe Parameters
+        - [Parameter]: [New value] (was [old value])
+        - [Parameter]: [New value] (was [old value])
+  
+  - type: textarea
+    id: future-experiments
+    attributes:
+      label: Follow-up Experiments Needed
+      description: What additional experiments are suggested?
+      placeholder: |
+        1. **Experiment:** [Title]
+           - Rationale: [Why needed based on these results]
+           - Variables: [What to test]
+        
+        2. **Experiment:** [Title]
+           - Rationale: [Why needed]
+           - Variables: [What to test]
+  
+  - type: textarea
+    id: lessons-learned
+    attributes:
+      label: Lessons Learned
+      description: Process improvements for future experiments
+      placeholder: |
+        ## What Worked Well
+        - [Process/method that was effective]
+        
+        ## What Could Be Improved
+        - [Issue encountered] → [Solution for next time]
+        
+        ## Experimental Design Insights
+        - [Learning about experimental methodology]
+  
+  - type: checkboxes
+    id: documentation-checklist
+    attributes:
+      label: Documentation Completeness
+      description: Ensure all results are properly documented
+      options:
+        - label: Raw data uploaded to 004-results/data/
+        - label: Analysis document created in 004-results/analysis/
+        - label: Conclusions summarized in 004-results/conclusions/
+        - label: Recipe updated based on findings
+        - label: Knowledge base updated with learnings
+        - label: Follow-up experiments created as issues
+        - label: Research document updated with validation

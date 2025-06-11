@@ -1,0 +1,156 @@
+name: 🍺 Recipe Development from Research
+description: Create a recipe based on deep research findings
+labels: ["recipe", "development", "research-based"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Recipe Development from Research
+        Transform research findings into actionable brewing recipes.
+
+  - type: input
+    id: recipe-name
+    attributes:
+      label: Recipe Name
+      description: Proposed name for the recipe
+      placeholder: "e.g., Research-Driven Belgian Wit v1.0"
+    validations:
+      required: true
+  
+  - type: input
+    id: research-source
+    attributes:
+      label: Source Research
+      description: Link to research document(s) this recipe is based on
+      placeholder: "brews/001-research-outputs/[category]/[document].md or Issue #XXX"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: recipe-stage
+    attributes:
+      label: Recipe Development Stage
+      description: Current stage of recipe development
+      options:
+        - Experimental - Initial concept from research
+        - Tested - Brewed and evaluated
+        - Production - Refined and ready for regular brewing
+    validations:
+      required: true
+  
+  - type: textarea
+    id: research-insights
+    attributes:
+      label: Key Research Insights Applied
+      description: What specific findings are being implemented?
+      placeholder: |
+        1. [Research finding] → [Recipe application]
+        2. [Research finding] → [Recipe application]
+        3. [Research finding] → [Recipe application]
+    validations:
+      required: true
+  
+  - type: textarea
+    id: recipe-targets
+    attributes:
+      label: Recipe Target Specifications
+      description: Based on research, what are the targets?
+      value: |
+        **Style:** [Beer style category]
+        **Batch Size:** 20L / 5 gallons
+        **Target OG:** 1.XXX
+        **Target FG:** 1.XXX
+        **Target ABV:** X.X%
+        **Target IBU:** XX
+        **Target SRM:** XX
+        **Mash pH:** X.X - X.X
+        **Water Profile:** [Based on research]
+    validations:
+      required: true
+  
+  - type: textarea
+    id: ingredient-selection
+    attributes:
+      label: Research-Based Ingredient Selection
+      description: Ingredients chosen based on research findings
+      value: |
+        ## Grain Bill
+        | Grain | Amount | % | Research Rationale |
+        |-------|--------|---|-------------------|
+        | | | | |
+        
+        ## Hop Schedule  
+        | Hop | Amount | Time | IBU | Research Rationale |
+        |-----|--------|------|-----|-------------------|
+        | | | | | |
+        
+        ## Yeast Selection
+        **Strain:** [Based on research]
+        **Rationale:** [Why this strain from research]
+        **Pitch Rate:** [From research recommendations]
+        
+        ## Water Chemistry
+        **Adjustments:** [Based on research]
+        **Target Profile:** [From research]
+    validations:
+      required: true
+  
+  - type: textarea
+    id: process-design
+    attributes:
+      label: Research-Driven Process Design
+      description: Process parameters from research
+      value: |
+        ## Mash Schedule
+        - [ ] Temperature: [From research]
+        - [ ] Duration: [From research]
+        - [ ] pH target: [From research]
+        
+        ## Fermentation Plan
+        - [ ] Temperature: [From research]
+        - [ ] Duration: [From research]
+        - [ ] Special considerations: [From research]
+  
+  - type: checkboxes
+    id: validation-experiments
+    attributes:
+      label: Validation Experiments
+      description: What experiments will validate this recipe?
+      options:
+        - label: Control batch with standard recipe
+        - label: Variable testing (single variable change)
+        - label: Triangle taste testing
+        - label: Laboratory analysis
+        - label: Aging/stability testing
+        - label: Scale testing (different batch sizes)
+  
+  - type: textarea
+    id: success-metrics
+    attributes:
+      label: Success Metrics
+      description: How will we measure if research was correctly applied?
+      placeholder: |
+        - Achieves target specifications
+        - Matches style guidelines
+        - Positive sensory evaluation
+        - Reproduces research predictions
+        - Solves identified problems
+  
+  - type: textarea
+    id: iteration-plan
+    attributes:
+      label: Iteration Plan
+      description: How will this recipe be refined?
+      placeholder: |
+        1. Initial experimental brew
+        2. Collect data and sensory feedback
+        3. Adjust based on results vs research
+        4. Test brew with modifications
+        5. Move to production stage
+  
+  - type: input
+    id: output-location
+    attributes:
+      label: Recipe File Location
+      description: Where will this recipe be stored?
+      value: "brews/002-recipes/experimental/[recipe-name].md"

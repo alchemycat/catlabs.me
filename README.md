@@ -1,116 +1,190 @@
-# catlabs.me - Brewing Research & Recipe Development
+# catlabs.me
 
-Welcome to catlabs.me, a comprehensive brewing research and recipe development project that combines deep technical research with collaborative brewing using GitHub Flow methodology.
+Welcome to catlabs.me - A comprehensive platform for deep brewing research and development.
 
-## Project Overview
+## Overview
 
-This repository serves as the central hub for brewing research, recipe development, and brewing session documentation. We use GitHub's issue and pull request system to manage the complete brewing workflow from initial research through recipe refinement.
+This repository represents catlabs.me and hosts the brewing research platform at brews.catlabs.me. We use GitHub Flow methodology to manage deep research, recipe development, and brewing experimentation with a focus on data-driven brewing innovation.
 
-## Repository Structure
+## Project Structure
 
 ```
 catlabs.me/
-├── 000-templates/        # Standardized templates
-├── 001-research/         # Deep technical research documents
-├── 002-recipes/          # Finalized brewing recipes
-├── 003-brewing-logs/     # Actual brewing session documentation
-├── 004-brews/           # Obsidian vault for notes and brainstorming
-├── .github/             # Issue and PR templates
-└── WORKFLOW.md          # Detailed workflow documentation
+├── .github/                    # GitHub automation and templates
+│   ├── ISSUE_TEMPLATE/        # Structured issue templates
+│   └── workflows/             # GitHub Actions automation
+├── brews/                     # brews.catlabs.me content (Obsidian vault)
+│   ├── .obsidian/            # Obsidian configuration
+│   ├── 000-research-prompts/ # Research templates
+│   ├── 001-research-outputs/ # Organized research documents
+│   ├── 002-recipes/          # Recipe development
+│   ├── 003-experiments/      # Experiment tracking
+│   ├── 004-results/          # Data and analysis
+│   ├── 005-brewing-logs/     # Brew session logs
+│   └── 006-knowledge-base/   # Accumulated knowledge
+├── README.md                  # This file
+├── BREWING-WORKFLOW.md        # Detailed workflow guide
+└── WORKFLOW.md               # Legacy workflow (being migrated)
 ```
 
-## Brewing Philosophy
+## Core Workflow
 
-- **Research-Driven**: Every recipe is backed by thorough research
-- **Collaborative**: Open to brewing partnerships and knowledge sharing
-- **Documented**: Complete traceability from research to final product
-- **Iterative**: Continuous improvement through brewing and analysis
-- **Quality-Focused**: Emphasis on consistent, high-quality results
+Our brewing research follows a systematic approach using GitHub Flow:
 
-## GitHub Flow for Brewing
+### 🔬 Research Pipeline
+```
+Research Request (Issue) → Deep Research (Branch) → Recipe Development (PR) → 
+Experiments (Issue) → Results Analysis (PR) → Knowledge Base (Update)
+```
 
-### 🔬 Research Phase
-Create **Recipe Research** issues to investigate brewing topics, analyze styles, and document findings that inform recipe development.
+### Key Components
 
-### 📝 Recipe Development  
-Create **New Recipe** issues to develop recipes based on research, then use pull requests to add finalized recipes to the collection.
+1. **Deep Research System**
+   - Structured research prompts for consistency
+   - Comprehensive documentation requirements
+   - Multi-source investigation methodology
+   - Practical brewing applications focus
 
-### 🍺 Brew Planning
-Create **Brew Day Planning** issues to organize brewing sessions, plan timelines, and coordinate with brewing partners.
+2. **Recipe Development**
+   - Research-driven formulation
+   - Staged development (experimental → tested → production)
+   - Complete documentation and rationale
+   - Version control and iteration tracking
 
-### 📊 Brewing Documentation
-Document actual brewing sessions with detailed logs, measurements, and quality assessments.
+3. **Experiment Design**
+   - Hypothesis-driven testing
+   - Controlled variable methodology
+   - Statistical analysis planning
+   - Reproducible procedures
 
-## Collaboration Projects
-
-### Mae-on Project
-Collaborative brewing partnership focusing on traditional and modern brewing techniques.
-
-### Brewtung Collaboration
-Joint brewing collective exploring innovative brewing approaches and recipe development.
-
-### Catalyst Brewing
-Professional brewing integration featuring advanced techniques and commercial-scale insights.
+4. **Knowledge Management**
+   - Organized knowledge base
+   - Cross-referenced documentation
+   - Continuous updates from experiments
+   - Best practices compilation
 
 ## Getting Started
 
-1. **Explore Recipes**: Browse the `002-recipes/` directory for current brewing recipes
-2. **Read Research**: Check `001-research/` for technical background and brewing science
-3. **Review Workflow**: See `WORKFLOW.md` for detailed process documentation
-4. **Create Issues**: Use issue templates to start research or recipe development
-5. **Join Collaboration**: Reach out for brewing partnerships and joint projects
+### For Researchers
 
-## Quick Start Workflow
+1. **Start a Research Project**
+   - Create issue using `🔬 Deep Research Request` template
+   - Define clear objectives and scope
+   - Use research prompt templates for guidance
+   - Document findings systematically
 
-```bash
-# Research a brewing topic
-Create issue using "🍺 Recipe Research" template
+2. **Access Research Prompts**
+   - Browse `brews/000-research-prompts/`
+   - Select appropriate template
+   - Follow structured approach
+   - Ensure comprehensive coverage
 
-# Develop a new recipe  
-Create issue using "➕ New Recipe" template
-git checkout -b recipe/recipe-name
-# Use 000-templates/recipe-template.md
-# Create PR for recipe addition
+### For Recipe Developers
 
-# Plan a brewing session
-Create issue using "🍻 Brew Day Planning" template
-git checkout -b brewing/recipe-batch-id
-# Use 000-templates/brewing-log-template.md
-# Document brewing session
-# Create PR for brewing log
-```
+1. **Create Research-Based Recipes**
+   - Start with research findings
+   - Use `🍺 Recipe Development` issue template
+   - Apply scientific principles
+   - Document all decisions
 
-## Tools and Integration
+2. **Recipe Stages**
+   - Experimental: Initial concepts
+   - Tested: Validated through brewing
+   - Production: Refined and consistent
 
-### Obsidian Vault
-The `004-brews/` directory serves as an Obsidian vault for rapid note-taking, concept linking, and brewing brainstorming.
+### For Experimenters
 
-### Templates
-Standardized templates ensure consistency across recipes, research, and brewing logs.
+1. **Design Experiments**
+   - Use `🧪 Brewing Experiment` template
+   - Link to research and recipes
+   - Plan data collection
+   - Define success criteria
+
+2. **Document Results**
+   - Use `📊 Experiment Results` template
+   - Include all data
+   - Provide statistical analysis
+   - Draw actionable conclusions
+
+## GitHub Flow Integration
 
 ### Issue Templates
-- 🍺 Recipe Research - Deep research requests
-- ➕ New Recipe - Recipe creation workflow  
-- 🍻 Brew Day Planning - Brewing session organization
+- `🔬 Deep Research Request` - Start research projects
+- `📋 Research Prompt Template` - Guide research execution  
+- `🍺 Recipe Development` - Create recipes from research
+- `🧪 Brewing Experiment` - Design validation experiments
+- `📊 Experiment Results` - Document and analyze results
+
+### Automation
+- Automatic branch creation for research
+- Document structure validation
+- Progress tracking
+- Deliverable verification
+
+## Using the Obsidian Vault
+
+The `brews/` directory is configured as an Obsidian vault:
+
+1. **Open in Obsidian**
+   - Open Obsidian
+   - Select "Open folder as vault"
+   - Choose the `brews/` directory
+
+2. **Navigation**
+   - Use graph view to see connections
+   - Follow links between research and recipes
+   - Use tags for categorization
+   - Search across all content
+
+3. **Best Practices**
+   - Link related documents
+   - Use consistent tags
+   - Include metadata
+   - Regular reviews and updates
 
 ## Quality Standards
 
-- All recipes include complete specifications and process documentation
-- Research is thoroughly cited and technically sound
-- Brewing logs capture complete data and analysis
-- Collaboration context is properly documented
-- GitHub Flow ensures all changes are reviewed and integrated
+- **Research**: Minimum 10 authoritative sources
+- **Recipes**: Complete specifications and documentation
+- **Experiments**: Statistical validity and reproducibility
+- **Documentation**: Clear, comprehensive, and actionable
 
 ## Contributing
 
-This project welcomes collaboration! Whether you're interested in:
-- Joint brewing sessions
-- Recipe development partnerships
-- Research collaboration
-- Technical brewing discussions
+We welcome contributions to brewing research! 
 
-Feel free to create issues or reach out for brewing partnerships.
+1. **Research Contributions**
+   - Propose new research topics
+   - Improve research methodologies
+   - Share findings and data
+
+2. **Recipe Development**
+   - Create new recipes from research
+   - Test and validate recipes
+   - Share brewing results
+
+3. **Process Improvements**
+   - Suggest workflow enhancements
+   - Improve templates
+   - Automate repetitive tasks
+
+## Resources
+
+- [Detailed Workflow Guide](./BREWING-WORKFLOW.md)
+- [Research Prompts](./brews/000-research-prompts/)
+- [Issue Templates](./.github/ISSUE_TEMPLATE/)
+- [Knowledge Base](./brews/006-knowledge-base/)
+
+## License
+
+This project is licensed under [LICENSE] - see the LICENSE file for details.
+
+## Contact
+
+For questions, collaborations, or brewing discussions:
+- Create an issue for project-related queries
+- Visit brews.catlabs.me for the brewing platform
 
 ---
 
-*Managed via GitHub Flow - See WORKFLOW.md for complete process documentation*
+*Brewing through science, perfecting through practice*

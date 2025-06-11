@@ -1,0 +1,147 @@
+name: 📋 Research Prompt Template
+description: Structured prompt for conducting brewing research
+labels: ["research", "prompt", "investigation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Research Prompt Template
+        Use this structured prompt to guide comprehensive brewing research. This ensures consistent, thorough investigation.
+
+  - type: input
+    id: prompt-title
+    attributes:
+      label: Research Prompt Title
+      description: Clear, specific title for this research prompt
+      placeholder: "e.g., Analyze Belgian Wit Yeast Strains for Flavor Profile Development"
+    validations:
+      required: true
+  
+  - type: input
+    id: linked-request
+    attributes:
+      label: Linked Research Request
+      description: Original research request issue number
+      placeholder: "#123"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: research-prompt
+    attributes:
+      label: Structured Research Prompt
+      description: Detailed prompt to guide the research
+      value: |
+        ## Research Context
+        [Provide background and why this research matters]
+        
+        ## Primary Research Questions
+        1. [Specific question 1]
+        2. [Specific question 2]
+        3. [Specific question 3]
+        
+        ## Research Methodology
+        ### Literature Review
+        - [ ] Academic brewing journals
+        - [ ] Industry publications
+        - [ ] Historical brewing texts
+        - [ ] Technical specifications
+        
+        ### Practical Analysis
+        - [ ] Commercial beer examples
+        - [ ] Ingredient specifications
+        - [ ] Process parameters
+        - [ ] Quality metrics
+        
+        ### Data Collection
+        - [ ] Quantitative measurements needed
+        - [ ] Qualitative assessments required
+        - [ ] Comparison frameworks
+        
+        ## Expected Deliverables
+        1. **Comprehensive Research Document**
+           - Scientific principles
+           - Practical applications
+           - Best practices
+           
+        2. **Recipe Framework**
+           - Ingredient recommendations
+           - Process parameters
+           - Target specifications
+           
+        3. **Experiment Proposals**
+           - Hypothesis to test
+           - Variables to control
+           - Success metrics
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: research-sources
+    attributes:
+      label: Research Sources to Consult
+      description: What sources should be investigated?
+      options:
+        - label: Scientific brewing literature
+        - label: Industry technical papers
+        - label: Historical brewing documents
+        - label: Commercial product analysis
+        - label: Brewing community knowledge
+        - label: Supplier technical data
+        - label: Competition style guidelines
+        - label: Professional brewer interviews
+  
+  - type: textarea
+    id: output-structure
+    attributes:
+      label: Research Output Structure
+      description: How should findings be organized?
+      value: |
+        ## Output Location: brews/001-research-outputs/[category]/[topic].md
+        
+        ### Document Structure:
+        1. **Executive Summary** (Key findings in 3-5 bullet points)
+        2. **Background & Context**
+        3. **Scientific Principles**
+        4. **Practical Applications**
+        5. **Commercial Examples Analysis**
+        6. **Recipe Development Guidelines**
+        7. **Experiment Opportunities**
+        8. **Best Practices & Recommendations**
+        9. **Common Issues & Solutions**
+        10. **References & Further Reading**
+  
+  - type: textarea
+    id: analysis-framework
+    attributes:
+      label: Analysis Framework
+      description: How to analyze and compare findings
+      placeholder: |
+        - Comparison matrices for similar options
+        - Quantitative metrics and ranges
+        - Qualitative assessment criteria
+        - Decision trees for selection
+  
+  - type: checkboxes
+    id: deliverable-checklist
+    attributes:
+      label: Research Deliverable Checklist
+      description: Ensure comprehensive output
+      options:
+        - label: Research document created in 001-research-outputs/
+        - label: At least 3 recipe concepts in 002-recipes/experimental/
+        - label: 2+ experiment proposals in 003-experiments/planned/
+        - label: Knowledge base entry in 006-knowledge-base/
+        - label: Cross-references added to related research
+        - label: Visual aids created (charts, diagrams, tables)
+  
+  - type: textarea
+    id: recipe-applications
+    attributes:
+      label: Recipe Development Applications
+      description: How will this research translate to recipes?
+      placeholder: |
+        - Specific ingredient combinations to test
+        - Process modifications to implement
+        - Target specifications to achieve
+        - Quality improvements expected

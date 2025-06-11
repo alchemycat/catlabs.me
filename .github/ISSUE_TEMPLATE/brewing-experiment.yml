@@ -1,0 +1,177 @@
+name: 🧪 Brewing Experiment Design
+description: Plan a controlled brewing experiment based on research
+labels: ["experiment", "brewing", "research-validation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Brewing Experiment Design
+        Design controlled experiments to validate research findings and optimize recipes.
+
+  - type: input
+    id: experiment-title
+    attributes:
+      label: Experiment Title
+      description: Clear, descriptive title for the experiment
+      placeholder: "e.g., Mash pH Impact on Wit Beer Flavor Profile"
+    validations:
+      required: true
+  
+  - type: input
+    id: research-basis
+    attributes:
+      label: Research Foundation
+      description: What research is this experiment based on?
+      placeholder: "Link to research document or Issue #XXX"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis
+      description: What are you testing? Be specific.
+      placeholder: |
+        Based on research showing [finding], we hypothesize that [specific prediction].
+        
+        Example: Based on research showing pH affects yeast ester production,
+        we hypothesize that mashing at pH 5.2 vs 5.5 will produce 
+        noticeably different ester profiles in the final beer.
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: experiment-type
+    attributes:
+      label: Experiment Type
+      description: What kind of experiment is this?
+      options:
+        - Single Variable Test (change one thing)
+        - Multi-Variable Test (factorial design)
+        - Process Optimization
+        - Ingredient Comparison
+        - Technique Validation
+        - Sensory Evaluation
+        - Shelf Life/Stability
+    validations:
+      required: true
+  
+  - type: textarea
+    id: variables
+    attributes:
+      label: Variables
+      description: Define all variables in the experiment
+      value: |
+        ## Independent Variables (what you change)
+        - Variable 1: [Description, range]
+        - Variable 2: [If applicable]
+        
+        ## Dependent Variables (what you measure)
+        - Measurement 1: [What, how, when]
+        - Measurement 2: [What, how, when]
+        
+        ## Controlled Variables (what stays the same)
+        - Control 1: [Description]
+        - Control 2: [Description]
+    validations:
+      required: true
+  
+  - type: textarea
+    id: experimental-design
+    attributes:
+      label: Experimental Design
+      description: Detailed experiment structure
+      value: |
+        ## Batch Planning
+        - Number of batches: [X]
+        - Batch size: [XX L]
+        - Control batch: [Yes/No, description]
+        
+        ## Timeline
+        - Brew date(s): [Date]
+        - Measurement points: [Days 0, 7, 14, etc.]
+        - Completion date: [Date]
+        
+        ## Randomization/Blinding
+        - [ ] Samples coded for blind tasting
+        - [ ] Random presentation order
+        - [ ] Multiple replicates
+    validations:
+      required: true
+  
+  - type: textarea
+    id: materials-methods
+    attributes:
+      label: Materials & Methods
+      description: Detailed procedures
+      value: |
+        ## Equipment Needed
+        - [ ] [Equipment 1]
+        - [ ] [Equipment 2]
+        
+        ## Special Materials
+        - [ ] [Material 1]
+        - [ ] [Material 2]
+        
+        ## Procedure
+        1. [Step 1]
+        2. [Step 2]
+        3. [Step 3]
+  
+  - type: checkboxes
+    id: data-collection
+    attributes:
+      label: Data Collection Plan
+      description: What data will be collected?
+      options:
+        - label: pH measurements (when, where)
+        - label: Gravity readings (OG, FG, daily)
+        - label: Temperature logs
+        - label: Sensory evaluation forms
+        - label: Laboratory analysis (specify)
+        - label: Photographic documentation
+        - label: Yield/efficiency calculations
+        - label: Cost analysis
+  
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria & Analysis Plan
+      description: How will you determine if the experiment succeeded?
+      placeholder: |
+        ## Success Criteria
+        - Statistically significant difference in [measurement]
+        - Sensory panel preference > X%
+        - Achieves target specification
+        
+        ## Analysis Plan
+        - Statistical test: [t-test, ANOVA, etc.]
+        - Sensory evaluation method: [triangle test, etc.]
+        - Data visualization: [charts planned]
+  
+  - type: textarea
+    id: risk-mitigation
+    attributes:
+      label: Risk Mitigation
+      description: What could go wrong and how to prevent it?
+      placeholder: |
+        - Risk: Infection → Mitigation: Extra sanitation protocol
+        - Risk: Temperature variation → Mitigation: Controlled fermentation chamber
+        - Risk: Measurement error → Mitigation: Calibrated instruments, multiple readings
+  
+  - type: input
+    id: experiment-cost
+    attributes:
+      label: Estimated Experiment Cost
+      description: Total cost for all batches and materials
+      placeholder: "$XXX"
+  
+  - type: input
+    id: output-locations
+    attributes:
+      label: Output File Locations
+      description: Where experiment files will be stored
+      value: |
+        Plan: brews/003-experiments/planned/[experiment-name].md
+        Data: brews/004-results/data/[experiment-name]-data.csv
+        Analysis: brews/004-results/analysis/[experiment-name]-analysis.md

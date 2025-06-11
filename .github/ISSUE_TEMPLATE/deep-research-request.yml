@@ -1,0 +1,118 @@
+name: 🔬 Deep Research Request
+description: Request comprehensive research on a brewing topic
+labels: ["research", "deep-dive", "brewing-science"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Deep Research Request
+        This issue template helps structure comprehensive brewing research that will drive recipe development and experimentation.
+
+  - type: input
+    id: research-topic
+    attributes:
+      label: Research Topic
+      description: What brewing topic needs deep investigation?
+      placeholder: "e.g., Belgian Trappist Yeast Characteristics, Water Chemistry for NEIPAs"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: research-category
+    attributes:
+      label: Research Category
+      description: Primary category for this research
+      options:
+        - Beer Styles & History
+        - Ingredients (Malts, Hops, Yeast, Water)
+        - Brewing Techniques & Processes
+        - Fermentation Science
+        - Quality Control & Analysis
+        - Recipe Optimization
+        - Troubleshooting & Problem Solving
+        - Equipment & Technology
+    validations:
+      required: true
+  
+  - type: textarea
+    id: research-objectives
+    attributes:
+      label: Research Objectives
+      description: What specific questions should this research answer?
+      placeholder: |
+        1. What are the key characteristics of this topic?
+        2. What are the scientific principles involved?
+        3. How can this be applied to recipe development?
+        4. What experiments could validate findings?
+    validations:
+      required: true
+  
+  - type: textarea
+    id: current-knowledge
+    attributes:
+      label: Current Knowledge
+      description: What do you already know about this topic?
+      placeholder: "Summarize existing understanding and identify knowledge gaps"
+  
+  - type: checkboxes
+    id: research-scope
+    attributes:
+      label: Research Scope
+      description: What aspects should be covered?
+      options:
+        - label: Historical context and traditional methods
+        - label: Scientific principles and chemistry
+        - label: Commercial examples and analysis
+        - label: Homebrewing applications
+        - label: Common issues and solutions
+        - label: Best practices and recommendations
+        - label: Experimental opportunities
+  
+  - type: textarea
+    id: expected-outputs
+    attributes:
+      label: Expected Research Outputs
+      description: What deliverables should this research produce?
+      value: |
+        - [ ] Comprehensive research document in 001-research-outputs/
+        - [ ] Recipe recommendations in 002-recipes/experimental/
+        - [ ] Experiment proposals in 003-experiments/planned/
+        - [ ] Knowledge base entries in 006-knowledge-base/
+  
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Research Priority
+      description: How urgent is this research?
+      options:
+        - Low - Background research
+        - Medium - Recipe development need
+        - High - Active project requirement
+        - Critical - Blocking current brewing
+    validations:
+      required: true
+  
+  - type: textarea
+    id: recipe-impact
+    attributes:
+      label: Recipe Development Impact
+      description: How will this research influence recipe creation?
+      placeholder: "Describe potential recipes or improvements this research will enable"
+  
+  - type: input
+    id: target-completion
+    attributes:
+      label: Target Completion Date
+      description: When should this research be completed?
+      placeholder: "YYYY-MM-DD"
+  
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: How will we know the research is complete?
+      placeholder: |
+        - All research objectives answered
+        - At least X commercial examples analyzed
+        - Actionable recommendations provided
+        - Experiment proposals created
