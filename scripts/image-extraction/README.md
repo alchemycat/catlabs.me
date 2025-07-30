@@ -1,9 +1,9 @@
-# Quick Image Extraction Guide
+# Quick Query (qqq) Image Guide
 
 ## Basic Usage
 ```bash
 # Download all images from an issue
-./lll.sh 18
+./qqq.sh 18
 
 # Extract text from a specific image
 claude "Read brews/05-images/issues/issue-18-image-1.png"
@@ -13,7 +13,7 @@ claude "Read brews/05-images/issues/issue-18-image-1.png"
 
 ### 1. Load images from issue
 ```bash
-./lll.sh 18
+./qqq.sh 18
 ```
 
 ### 2. Extract text from each image

@@ -27,7 +27,7 @@ git add . && git commit -m "[message]"
 gh pr create --fill
 
 # Image extraction
-./lll.sh [issue-number]  # Download all images from issue
+./qqq.sh [issue-number]  # Download all images from issue
 ```
 
 ## Guidelines
@@ -46,7 +46,7 @@ gh pr create --fill
 - `nnn` - Smart planning: Auto-runs `ccc` if no recent context → Create task issue → Implement
 - `lll` - List comprehensive project status
 - `rrr` - Create detailed session retrospective with export
-- `lll [issue-id]` - Load all images from issue and extract text
+- `qqq [issue-id]` - Load all images from issue and extract text
 
 ## Core Short Codes
 
@@ -294,10 +294,8 @@ AI: 1. Reads issue #156 and analyzes codebase
 - `ccc`: Saves current state/context for future reference
 - `nnn`: Creates actionable implementation plan from context (NO CODING)
 
-### `lll` - List Project Status OR Load Issue Images
-
-#### For Project Status
-When you see `lll` (without issue number), execute in parallel:
+### `lll` - List Project Status
+When you see `lll`, execute in parallel:
 ```bash
 gh issue list --limit 20
 gh issue list --state closed --limit 10
@@ -324,17 +322,47 @@ Then provide a visual summary:
 📍 Current Focus: [from latest issues]
 ```
 
-#### For Loading Issue Images: `lll [issue-id]`
-When you see `lll 18` or similar:
+### `qqq` - Quick Query Images
+When you see `qqq [issue-number]`:
+
+**Purpose**: Download and extract text from all images in a GitHub issue.
+
+**Step 1: Run the extraction script**
 ```bash
-./lll.sh [issue-id]
+./qqq.sh [issue-number]
 ```
 
-This will:
-1. Download all images from the specified GitHub issue
-2. Save them to `brews/05-images/issues/`
-3. Create extract template in `brews/05-images/extracts/`
-4. Track image sources for text extraction
+**Step 2: Read and extract text from downloaded images**
+After the script completes, read each downloaded image to extract text:
+```bash
+# List downloaded images
+ls -la brews/05-images/issues/issue-[number]-*
+
+# Read each image to extract text
+Read brews/05-images/issues/issue-[number]-image-1.png
+# Continue for all images...
+```
+
+**Step 3: Update the extract file**
+Edit the generated extract file with the actual text content:
+```bash
+Edit brews/05-images/extracts/issue-[number]-extracted.md
+```
+
+Replace placeholder text with actual extracted content from each image.
+
+**Step 4: Provide summary**
+Summarize what was found in the images (recipes, notes, research, etc.)
+
+**Example Flow:**
+```
+User: qqq 18
+AI: 1. Runs ./qqq.sh 18
+    2. Downloads 1 image from issue #18
+    3. Reads image: blonde ale recipe from 26/07/2025
+    4. Updates extract file with recipe details
+    5. Summary: "Found German Blonde Ale recipe with 66% Pilsner, 22% Vienna, 12% Wheat"
+```
 
 ### `rrr` - Retrospective
 When you see `rrr`:

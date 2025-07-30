@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Load images from issue and extract text
-# Usage: ./lll.sh [issue-number]
+# Quick Query images from issue and extract text
+# Usage: ./qqq.sh [issue-number]
 
 ISSUE_NUMBER=$1
 IMAGE_DIR="brews/05-images/issues"
 EXTRACT_DIR="brews/05-images/extracts"
 
 if [ -z "$ISSUE_NUMBER" ]; then
-    echo "Usage: ./lll.sh [issue-number]"
+    echo "Usage: ./qqq.sh [issue-number]"
     exit 1
 fi
 
