@@ -64,19 +64,13 @@ git status --porcelain
 git log --oneline -5
 ```
 
-**Step 2: Export Conversation**
-```
-/export context_YYYY-MM-DD_HH-MM_issue-XXX.md
-```
-
-**Step 3: Create GitHub Context Issue**
+**Step 2: Create GitHub Context Issue**
 ```bash
 gh issue create --title "context: Brief description of current work/state" --body "$(cat <<'EOF'
 ## Session Context
 
 **Date**: YYYY-MM-DD
-**Duration**: ~X minutes
-**Export**: retrospectives/exports/context_YYYY-MM-DD_HH-MM_issue-XXX.md
+**Time**: HH:MM GMT+7
 
 ## Current Work Summary
 [2-3 sentences about what was being worked on]
@@ -124,10 +118,12 @@ EOF
 )"
 ```
 
-**Step 4: Compact Conversation**
+**Step 3: Optional - Export Conversation**
+If you want to save the full conversation:
 ```
-/compact
+/export
 ```
+This will create a downloadable file that can be saved to `retrospectives/exports/` for future reference.
 
 ### `nnn` - Next Task Planning (Analysis & Planning Only)
 When you see `nnn`:
@@ -167,7 +163,7 @@ gh issue list --limit 20
 - Consider edge cases and potential issues
 
 **Step 3: Create Comprehensive Plan Issue**
-Create a detailed implementation plan with all necessary context:
+Create a detailed implementation plan with all necessary context. If following a `qqq` command, embed the extracted images:
 ```bash
 gh issue create --title "plan: Clear description of what needs to be done" --body "$(cat <<'EOF'
 ## Implementation Plan
@@ -177,6 +173,13 @@ gh issue create --title "plan: Clear description of what needs to be done" --bod
 
 ## Problem Statement
 [Clear description of what needs to be solved/implemented]
+
+## Visual Reference
+[If following qqq, embed the extracted images]
+![Image Description](https://github.com/alchemycat/catlabs.me/blob/main/brews/05-images/issues/issue-[number]-image-1.png)
+
+## Extracted Content
+[If following qqq, include key extracted data]
 
 ## Research Summary
 ### Current Implementation Analysis
@@ -351,7 +354,29 @@ Edit brews/05-images/extracts/issue-[number]-extracted.md
 
 Replace placeholder text with actual extracted content from each image.
 
-**Step 4: Provide summary**
+**Step 4: Comment on original issue**
+Post the extracted text back to the original issue:
+```bash
+gh issue comment [issue-number] --body "$(cat <<'EOF'
+## 📸 Image Text Extraction
+
+Successfully extracted text from image(s):
+
+### Extracted Content:
+```
+[paste extracted text here]
+```
+
+### Files Created:
+- 🖼️ Images: `brews/05-images/issues/issue-[number]-*.png`
+- 📄 Extract: `brews/05-images/extracts/issue-[number]-extracted.md`
+
+[View extracted text](../blob/main/brews/05-images/extracts/issue-[number]-extracted.md)
+EOF
+)"
+```
+
+**Step 5: Provide summary**
 Summarize what was found in the images (recipes, notes, research, etc.)
 
 **Example Flow:**
@@ -361,7 +386,8 @@ AI: 1. Runs ./scripts/image-extraction/qqq.sh 18
     2. Downloads 1 image from issue #18
     3. Reads image: blonde ale recipe from 26/07/2025
     4. Updates extract file with recipe details
-    5. Summary: "Found German Blonde Ale recipe with 66% Pilsner, 22% Vienna, 12% Wheat"
+    5. Comments on issue #18 with extracted text
+    6. Summary: "Found German Blonde Ale recipe with 66% Pilsner, 22% Vienna, 12% Wheat"
 ```
 
 ### `rrr` - Retrospective
