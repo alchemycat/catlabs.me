@@ -1,1 +1,0 @@
-scripts/image-extraction/qqq.sh

@@ -27,7 +27,7 @@ git add . && git commit -m "[message]"
 gh pr create --fill
 
 # Image extraction
-./qqq.sh [issue-number]  # Download all images from issue
+./scripts/image-extraction/qqq.sh [issue-number]  # Download all images from issue
 ```
 
 ## Guidelines
@@ -329,7 +329,7 @@ When you see `qqq [issue-number]`:
 
 **Step 1: Run the extraction script**
 ```bash
-./qqq.sh [issue-number]
+./scripts/image-extraction/qqq.sh [issue-number]
 ```
 
 **Step 2: Read and extract text from downloaded images**
@@ -357,7 +357,7 @@ Summarize what was found in the images (recipes, notes, research, etc.)
 **Example Flow:**
 ```
 User: qqq 18
-AI: 1. Runs ./qqq.sh 18
+AI: 1. Runs ./scripts/image-extraction/qqq.sh 18
     2. Downloads 1 image from issue #18
     3. Reads image: blonde ale recipe from 26/07/2025
     4. Updates extract file with recipe details
