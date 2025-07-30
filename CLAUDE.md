@@ -2,11 +2,14 @@
 
 ## Workflow: Idea → Research → Recipe → Notes
 
+**🔴 ALWAYS USE GITHUB FLOW - NO DIRECT COMMITS TO MAIN**
+
 1. User creates issue for idea/research/recipe
 2. Use `gh issue develop` to create and switch to feature branch
 3. Work in branch, commit changes  
-4. Create PR with `gh pr create`
-5. Merge PR (manually or auto-merge)
+4. Push branch with `git push -u origin [branch-name]`
+5. Create PR with `gh pr create`
+6. Merge PR (manually or auto-merge)
 
 ## Structure
 ```
@@ -37,7 +40,10 @@ gh pr merge --auto --delete-branch                 # Auto-merge when checks pass
 - Focus on brewing, not process
 - Research and recipes should link to their originating issues
 - Notes can be added directly to main (no issue needed)
-- **IMPORTANT**: Always use GitHub flow (issue → branch → PR) for significant changes
+- **IMPORTANT**: Always use GitHub flow (issue → branch → PR) for ALL changes except:
+  - Minor typo fixes in documentation
+  - Emergency hotfixes
+  - Brew notes (as specified above)
 
 ## Quality Checks
 - Recipes should have: ingredients, process, notes
@@ -302,7 +308,7 @@ AI: 1. Reads issue #156 and analyzes codebase
 
 ### GitHub Flow Implementation
 
-**IMPORTANT**: After `nnn` creates a plan issue, always follow GitHub flow:
+**🔴 CRITICAL**: ALWAYS follow GitHub flow for ALL implementation work. NO EXCEPTIONS for recipes, features, or any code changes.
 
 **Step 1: Create feature branch from issue**
 ```bash
@@ -320,6 +326,10 @@ gh issue develop [issue-number] --name "feat/brief-description"
 
 **Step 3: Create Pull Request**
 ```bash
+# First push the branch
+git push -u origin [branch-name]
+
+# Then create PR
 gh pr create --fill
 # Or with custom title/body:
 gh pr create --title "feat: Description" --body "Fixes #[issue-number]"
@@ -343,14 +353,20 @@ User: gogogo
 AI: 1. gh issue develop 21 --name "feat/hop-variety-research"
     2. [implements changes]
     3. git add -A && git commit -m "feat: Add hop variety research"
-    4. gh pr create --fill
-    5. Provides PR link for review
+    4. git push -u origin feat/hop-variety-research
+    5. gh pr create --fill
+    6. Provides PR link for review
 ```
 
-**Note**: Direct commits to main should only be for:
-- Minor documentation updates
-- Emergency hotfixes
-- Brew notes (as specified in guidelines)
+**⚠️ REMINDER**: If you accidentally commit to main:
+1. Create a new branch from current state: `git checkout -b fix/accidental-main`
+2. Reset main: `git checkout main && git reset --hard origin/main`
+3. Push the branch and create PR as normal
+
+**Direct commits to main allowed ONLY for:**
+- Minor typo fixes in documentation (single word changes)
+- Emergency hotfixes (with user explicit approval)
+- Brew notes in 03-notes/ directory
 
 ### `lll` - List Project Status
 When you see `lll`, execute in parallel:
