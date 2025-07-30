@@ -3,9 +3,10 @@
 ## Workflow: Idea → Research → Recipe → Notes
 
 1. User creates issue for idea/research/recipe
-2. Use `gh issue develop` to create branch
+2. Use `gh issue develop` to create and switch to feature branch
 3. Work in branch, commit changes  
-4. Create PR and merge
+4. Create PR with `gh pr create`
+5. Merge PR (manually or auto-merge)
 
 ## Structure
 ```
@@ -20,11 +21,12 @@ brews/
 
 ## Commands
 ```bash
-# Standard flow
+# Standard GitHub flow
 gh issue create --title "[Type]: [Name]"
-gh issue develop [number] --name "[type]/[name]"
+gh issue develop [number] --name "[type]/[name]"  # Creates and checks out branch
 git add . && git commit -m "[message]"
-gh pr create --fill
+gh pr create --fill                                # Creates PR from current branch
+gh pr merge --auto --delete-branch                 # Auto-merge when checks pass
 
 # Image extraction
 ./scripts/image-extraction/qqq.sh [issue-number]  # Download all images from issue
@@ -35,6 +37,7 @@ gh pr create --fill
 - Focus on brewing, not process
 - Research and recipes should link to their originating issues
 - Notes can be added directly to main (no issue needed)
+- **IMPORTANT**: Always use GitHub flow (issue → branch → PR) for significant changes
 
 ## Quality Checks
 - Recipes should have: ingredients, process, notes
@@ -296,6 +299,58 @@ AI: 1. Reads issue #156 and analyzes codebase
 **Key Differences**:
 - `ccc`: Saves current state/context for future reference
 - `nnn`: Creates actionable implementation plan from context (NO CODING)
+
+### GitHub Flow Implementation
+
+**IMPORTANT**: After `nnn` creates a plan issue, always follow GitHub flow:
+
+**Step 1: Create feature branch from issue**
+```bash
+gh issue develop [issue-number] --name "feat/brief-description"
+# This automatically:
+# - Creates a new branch
+# - Checks out the branch
+# - Links branch to issue
+```
+
+**Step 2: Implement changes**
+- Work on the feature branch
+- Make commits with clear messages
+- Test your changes
+
+**Step 3: Create Pull Request**
+```bash
+gh pr create --fill
+# Or with custom title/body:
+gh pr create --title "feat: Description" --body "Fixes #[issue-number]"
+```
+
+**Step 4: Merge (after review/approval)**
+```bash
+# Manual merge:
+gh pr merge [pr-number] --delete-branch
+
+# Or set auto-merge:
+gh pr merge --auto --delete-branch
+```
+
+**Example Complete Flow:**
+```
+User: nnn
+AI: Creates issue #21 "plan: Add new hop variety research"
+
+User: gogogo
+AI: 1. gh issue develop 21 --name "feat/hop-variety-research"
+    2. [implements changes]
+    3. git add -A && git commit -m "feat: Add hop variety research"
+    4. gh pr create --fill
+    5. Provides PR link for review
+```
+
+**Note**: Direct commits to main should only be for:
+- Minor documentation updates
+- Emergency hotfixes
+- Brew notes (as specified in guidelines)
 
 ### `lll` - List Project Status
 When you see `lll`, execute in parallel:
