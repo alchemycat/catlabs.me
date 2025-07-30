@@ -1,6 +1,6 @@
 # Extracted Text from Issue #18
 
-Generated: Wed Jul 30 14:48:46 +07 2025
+Generated: Wed Jul 30 15:09:39 +07 2025
 
 ---
 ## Image 1: issue-18-image-1.png
@@ -8,36 +8,33 @@ Source: https://github.com/user-attachments/assets/45f2e986-555b-48a2-9da8-9fb3f
 Local: brews/05-images/issues/issue-18-image-1.png
 
 ### Extracted Text:
-```
-Date: 26/07/2025
 
-German Blonde Ale
+#### German Blonde Ale
+**Date:** 26/07/2025
 
-Malt:
+**Malt:**
 - Pilsner: 2.92 kg (66%)
 - Vienna: 0.9 kg (22%)
 - Wheat: 0.45 kg (12%)
-- Total: 4.07 kg
+- Total: 4.09 kg
 
-Water: 12L (not add mineral)
-
-Yeast: US-05
-
-Hops:
-- 0.5 Oz = 14g @ 60 min
-- 1.5 Oz = 42g @ 10 min
-
-Mash: 1 hr @ 67°C
-
-OG pre-boil: 10.8 Brix, pH 5.98
-OG after-boil: 13.4 Brix, pH 5.90
-
-Pitch: 18°C / Ferment 18°C (cell 07/2025: 8:00pm)
-
-Mash Profile:
-- Mash Water: 14 L
+**Water:**
+- Mash Ratio: 4:1
+- Mash Water: 16 L
 - Sparge Water: 6 L
 - Pre Boil: 22 L
 - After Boil: 18 L
-```
+
+**Process:**
+- Water: 121.4ppm (not add mineral)
+- Yeast: US-05
+- Mash: 1 hrs, 67°C
+- Hops: 
+  - 0.5 oz = 14g @ 60 min
+  - 1.5 oz = 42g @ 10 min
+
+**Measurements:**
+- OG pre-boil = 10.8 brix, pH 5.98
+- OG after-boil = 13.4 brix, pH 5.90
+- Pitch 11°C / Ferment 18°C (cell 102025: 8:00pm)
 
