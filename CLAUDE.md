@@ -1,15 +1,15 @@
 # Claude Instructions - Simple Brewing
 
-## Workflow: Idea → Research → Recipe → Notes
+## Simplified Brewing Workflow
 
 **🔴 ALWAYS USE GITHUB FLOW - NO DIRECT COMMITS TO MAIN**
 
-1. User creates issue for idea/research/recipe
-2. Use `gh issue develop` to create and switch to feature branch
-3. Work in branch, commit changes  
-4. Push branch with `git push -u origin [branch-name]`
-5. Create PR with `gh pr create`
-6. Merge PR (manually or auto-merge)
+1. Create issue with your idea, recipe image, or research topic
+2. Run `nnn [issue-number]` to analyze and create plan
+3. Run `gogogo` to implement the plan
+4. Review and merge PR
+
+That's it! Simple brewing for humans.
 
 ## Structure
 ```
@@ -22,17 +22,20 @@ brews/
 └── 99-archive/     # Old stuff
 ```
 
-## Commands
+## Key Commands
 ```bash
-# Standard GitHub flow
-gh issue create --title "[Type]: [Name]"
-gh issue develop [number] --name "[type]/[name]"  # Creates and checks out branch
-git add . && git commit -m "[message]"
-gh pr create --fill                                # Creates PR from current branch
-gh pr merge --auto --delete-branch                 # Auto-merge when checks pass
+# Create issue with your brewing content
+gh issue create --title "[Recipe/Research/Idea]: [Name]"
 
-# Image extraction
-./scripts/image-extraction/qqq.sh [issue-number]  # Download all images from issue
+# Analyze and plan
+nnn [issue-number]    # Creates implementation plan
+
+# Implement 
+gogogo               # Implements the most recent plan
+
+# Other useful commands
+lll                  # Show project status
+rrr                  # Create session retrospective (optional)
 ```
 
 ## Guidelines
@@ -51,128 +54,42 @@ gh pr merge --auto --delete-branch                 # Auto-merge when checks pass
 - That's it - no mandatory sections or complex validation
 
 ## Quick Reference - Short Codes
-- `ccc` - Create context issue, export conversation, and compact
-- `nnn` - Smart planning: Auto-runs `ccc` if no recent context → Create task issue → Implement
+- `nnn [issue-id]` - Analyze issue and create implementation plan (auto-extracts images if needed)
+- `qqq [issue-id]` - Extract images from issue (usually auto-handled by nnn)
 - `lll` - List comprehensive project status
-- `rrr` - Create detailed session retrospective with export
-- `qqq [issue-id]` - Load all images from issue and extract text
+- `rrr` - Create detailed session retrospective (optional)
+- `gogogo` - Start implementing the plan from nnn
 
 ## Core Short Codes
 
-### `ccc` - Create Context & Compact
-When you see `ccc`:
+### `nnn` - Analyze & Plan
+When you see `nnn` or `nnn [issue-number]`:
 
-**Purpose**: Save the current session state and context to forward to another task. The context issue created by `ccc` can be used as input for `nnn`.
+**Purpose**: Analyze a brewing issue (recipe, research, idea) and create an implementation plan. This is the PRIMARY planning command for the brewing project.
 
-**Step 1: Gather Information**
+**Usage**:
+- `nnn` - Analyzes the most recent open issue
+- `nnn 23` - Analyzes specific issue #23
+
+**Step 1: Read Target Issue**
 ```bash
-# Get changed files
-git status --porcelain
+# If issue number provided
+gh issue view [issue-number]
 
-# Get recent commits
-git log --oneline -5
+# If no issue number, get most recent
+gh issue list --limit 1
 ```
 
-**Step 2: Create GitHub Context Issue**
-```bash
-gh issue create --title "context: Brief description of current work/state" --body "$(cat <<'EOF'
-## Session Context
+**Step 2: Auto-Extract Images (if present)**
+If the issue contains images, automatically run `qqq` to extract them.
 
-**Date**: YYYY-MM-DD
-**Time**: HH:MM GMT+7
+**Step 3: Analyze Content**
+- For recipes: Identify ingredients, process, missing information
+- For research: Determine scope, resources needed, output format
+- For ideas: Clarify requirements, break down into tasks
 
-## Current Work Summary
-[2-3 sentences about what was being worked on]
-
-## Current State
-### What's Working
-- Feature X is implemented
-- Component Y is functional
-
-### What's In Progress
-- Task A is 50% complete
-- Research on B is ongoing
-
-### What's Blocked
-- Issue with Z needs resolution
-
-## Technical Context
-### Changed Files
-```
-[paste git status --porcelain output]
-```
-
-### Key Code Changes
-- File X: Added Y functionality
-- Module Z: Refactored for performance
-
-### Architecture Decisions
-- Decision 1: Rationale
-- Decision 2: Rationale
-
-## Important Discoveries
-- Finding 1
-- Learning 2
-- Pattern 3
-
-## Next Steps
-- [ ] Complete task A
-- [ ] Research solution for Z
-- [ ] Implement feature B
-
-## Related Issues
-- #XXX - Previous context
-- #XXX - Related feature
-EOF
-)"
-```
-
-**Step 3: Optional - Export Conversation**
-If you want to save the full conversation:
-```
-/export
-```
-This will create a downloadable file that can be saved to `retrospectives/exports/` for future reference.
-
-### `nnn` - Next Task Planning (Analysis & Planning Only)
-When you see `nnn`:
-
-**Purpose**: Create a comprehensive implementation plan based on gathered context. NO CODING - only research, analysis, and planning.
-
-**IMPORTANT**: After `nnn` creates a plan, WAIT for explicit user instruction to implement. Do NOT start coding automatically.
-
-**Step 1: Check for Recent Context**
-```bash
-# Check if there's a recent context issue (within last 24 hours)
-gh issue list --label "context" --limit 5
-
-# Decision logic:
-# - If NO recent context issue exists → Perform `ccc` first to capture current state
-# - If recent context issue EXISTS → Use that context and proceed to Step 2
-```
-
-**Smart Workflow**:
-- If no recent `ccc` context: `nnn` automatically does `ccc` → then creates task issue
-- If recent `ccc` exists: `nnn` uses existing context → creates task issue directly
-
-**Step 2: Gather All Context**
-```bash
-# List recent issues to understand context
-gh issue list --limit 20
-
-# If specified: nnn #123 - analyze that specific issue/topic
-# If just nnn - analyze the most recent context or current work
-```
-
-**Step 2: Deep Analysis**
-- Read relevant context issues (especially from `ccc`)
-- Analyze the codebase using multiple agents if needed
-- Research existing patterns and implementations
-- Identify all affected components
-- Consider edge cases and potential issues
-
-**Step 3: Create Comprehensive Plan Issue**
-Create a detailed implementation plan with all necessary context. If following a `qqq` command, embed the extracted images:
+**Step 4: Create Implementation Plan**
+Create a plan based on the issue type:
 ```bash
 gh issue create --title "plan: Clear description of what needs to be done" --body "$(cat <<'EOF'
 ## Implementation Plan
@@ -284,27 +201,59 @@ EOF
 )"
 ```
 
-**Step 4: Provide Summary**
-After creating the issue, provide a brief summary of:
-- What was analyzed
-- Key findings
-- Issue number created
-- Ready for implementation
+```bash
+gh issue create --title "plan: [Description based on original issue]" --body "$(cat <<'EOF'
+## Implementation Plan
 
-**Example Flow:**
+**Source Issue**: #[issue-number] - [issue-title]
+**Type**: [recipe/research/brew-notes]
+
+## Objective
+[Clear statement of what needs to be done]
+
+## Extracted Content (if applicable)
+[Images extracted and analyzed]
+[Key data points identified]
+
+## Implementation Steps
+1. [Specific action]
+2. [Specific action]
+3. [Specific action]
+
+## Output
+- [ ] File to create: brews/[appropriate-folder]/[filename].md
+- [ ] Format: [recipe/research/notes]
+- [ ] Link back to issue #[number]
+
+## Success Criteria
+- [ ] All information from issue captured
+- [ ] Follows established format
+- [ ] Ready for brewing/reference
+EOF
+)"
 ```
-User: ccc
-AI: Creates issue #156 (Context: Multicall research completed)
 
-User: nnn
-AI: 1. Reads issue #156 and analyzes codebase
-    2. Creates issue #157 "plan: Implement multicall for enhanced store data"
-    3. Provides summary: "Created comprehensive plan in issue #157. Ready for implementation."
+**Step 5: Provide Summary**
+After creating the plan:
+- Confirm plan issue created
+- Note any missing information
+- Ready for `gogogo` implementation
+
+**Example Flows:**
 ```
+# Recipe from image
+User: nnn 23
+AI: 1. Reads issue #23 (German Blonde Ale image)
+    2. Auto-extracts image with qqq
+    3. Creates plan: "Document German Blonde Ale recipe"
+    4. "Plan created in issue #24. Ready for implementation."
 
-**Key Differences**:
-- `ccc`: Saves current state/context for future reference
-- `nnn`: Creates actionable implementation plan from context (NO CODING)
+# Research topic
+User: nnn 15  
+AI: 1. Reads issue #15 ("Research hop varieties")
+    2. Creates plan: "Research and document hop varieties"
+    3. "Plan created in issue #16. Ready for implementation."
+```
 
 ### GitHub Flow Implementation
 
@@ -344,18 +293,31 @@ gh pr merge [pr-number] --delete-branch
 gh pr merge --auto --delete-branch
 ```
 
-**Example Complete Flow:**
+### `gogogo` - Implementation
+When you see `gogogo`:
+
+**Purpose**: Implement the plan created by `nnn`. Always follows GitHub flow.
+
+**Automatic Steps**:
+1. Find the most recent plan issue
+2. Create feature branch: `gh issue develop [plan-issue] --name "feat/[description]"`
+3. Implement according to plan
+4. Commit and push: `git add -A && git commit -m "[message]" && git push -u origin [branch]"`
+5. Create PR: `gh pr create --fill`
+6. Close original issue (not plan issue) in PR description
+
+**Example Flow:**
 ```
-User: nnn
-AI: Creates issue #21 "plan: Add new hop variety research"
+User: nnn 23
+AI: Creates plan issue #24 "plan: Document German Blonde Ale recipe"
 
 User: gogogo
-AI: 1. gh issue develop 21 --name "feat/hop-variety-research"
-    2. [implements changes]
-    3. git add -A && git commit -m "feat: Add hop variety research"
-    4. git push -u origin feat/hop-variety-research
-    5. gh pr create --fill
-    6. Provides PR link for review
+AI: 1. gh issue develop 24 --name "feat/german-blonde-ale-recipe"
+    2. Creates brews/02-recipes/issue-23-german-blonde-ale.md
+    3. git add -A && git commit -m "feat: Document German Blonde Ale recipe from issue #23"
+    4. git push -u origin feat/german-blonde-ale-recipe
+    5. gh pr create --fill --body "Closes #23"
+    6. "PR created: [link]"
 ```
 
 **⚠️ REMINDER**: If you accidentally commit to main:
@@ -396,70 +358,21 @@ Then provide a visual summary:
 📍 Current Focus: [from latest issues]
 ```
 
-### `qqq` - Quick Query Images
+### `qqq` - Quick Query Images (Usually Auto-Handled)
 When you see `qqq [issue-number]`:
 
-**Purpose**: Download and extract text from all images in a GitHub issue.
+**Purpose**: Extract images from GitHub issues. Note: `nnn` automatically runs this when needed, so you rarely need to use it directly.
 
-**Step 1: Run the extraction script**
-```bash
-./scripts/image-extraction/qqq.sh [issue-number]
-```
+**When to use manually**:
+- Testing image extraction
+- Re-extracting after issue update
+- Extracting images without creating a plan
 
-**Step 2: Read and extract text from downloaded images**
-After the script completes, read each downloaded image to extract text:
-```bash
-# List downloaded images
-ls -la brews/05-images/issues/issue-[number]-*
-
-# Read each image to extract text
-Read brews/05-images/issues/issue-[number]-image-1.png
-# Continue for all images...
-```
-
-**Step 3: Update the extract file**
-Edit the generated extract file with the actual text content:
-```bash
-Edit brews/05-images/extracts/issue-[number]-extracted.md
-```
-
-Replace placeholder text with actual extracted content from each image.
-
-**Step 4: Comment on original issue**
-Post the extracted text back to the original issue:
-```bash
-gh issue comment [issue-number] --body "$(cat <<'EOF'
-## 📸 Image Text Extraction
-
-Successfully extracted text from image(s):
-
-### Extracted Content:
-```
-[paste extracted text here]
-```
-
-### Files Created:
-- 🖼️ Images: `brews/05-images/issues/issue-[number]-*.png`
-- 📄 Extract: `brews/05-images/extracts/issue-[number]-extracted.md`
-
-[View extracted text](../blob/main/brews/05-images/extracts/issue-[number]-extracted.md)
-EOF
-)"
-```
-
-**Step 5: Provide summary**
-Summarize what was found in the images (recipes, notes, research, etc.)
-
-**Example Flow:**
-```
-User: qqq 18
-AI: 1. Runs ./scripts/image-extraction/qqq.sh 18
-    2. Downloads 1 image from issue #18
-    3. Reads image: blonde ale recipe from 26/07/2025
-    4. Updates extract file with recipe details
-    5. Comments on issue #18 with extracted text
-    6. Summary: "Found German Blonde Ale recipe with 66% Pilsner, 22% Vienna, 12% Wheat"
-```
+**What it does**:
+1. Downloads all images from the issue
+2. Extracts text content
+3. Comments extracted text back to issue
+4. Creates extraction record for reference
 
 ### `rrr` - Retrospective
 When you see `rrr`:
@@ -606,39 +519,37 @@ gh issue comment XXX --body "Session retrospective created: ${RETRO_PATH}"
 Closes #[issue-number]
 ```
 
+## Summary: The Brewing Flow
+
+```mermaid
+graph LR
+    A[Create Issue] --> B[nnn: Analyze & Plan]
+    B --> C[gogogo: Implement]
+    C --> D[PR & Merge]
+```
+
+**Why this works for brewing:**
+- Issues already contain full context (recipes, images, ideas)
+- Each task is self-contained (no complex dependencies)
+- Simple, linear workflow matches brewing process
+- Less commands = less cognitive load = more brewing!
+
 ## 🔴 Critical Safety Rules
 
-### Command Usage
-- **NEVER use `-f` or `--force` flags with any commands**
-- Always use safe, non-destructive command options
-- If a command requires confirmation, handle it appropriately without forcing
+### Always Use GitHub Flow
+- **NEVER commit directly to main** (except brew notes in 03-notes/)
+- Always: Issue → Branch → PR → Merge
+- Use `gh issue develop` to create branches from issues
 
-### Git Operations
-- Never use `git push --force` or `git push -f`
-- Never use `git checkout -f`
-- Never use `git clean -f`
-- Always use safe git operations that preserve history
+### Command Safety
+- **NEVER use `-f` or `--force` flags**
+- Always use safe, non-destructive operations
+- Confirm before destructive actions
 
-### File Operations
-- Never use `rm -rf` - use `rm -i` for interactive confirmation
-- Always confirm before deleting files
-- Use safe file operations that can be reversed
-
-### Package Manager Operations
-- Never use `pnpm install --force` or `npm install --force`
-- Never use `pnpm update` without specifying packages
-- Always review lockfile changes before committing
-
-### Container Operations
-- Never use `docker system prune -a` without confirmation
-- Never delete volumes without backing up data first
-- Always check running containers before removal
-
-### General Safety Guidelines
-- Prioritize safety and reversibility in all operations
-- Ask for confirmation when performing potentially destructive actions
-- Explain the implications of commands before executing them
-- Use verbose options to show what commands are doing
+### Git Safety
+- Never `git push --force`
+- Never `git checkout -f`
+- Always preserve history
 
 ---
 *Simple brewing for humans*
